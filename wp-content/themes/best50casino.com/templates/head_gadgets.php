@@ -3,15 +3,15 @@ function get_label($choice, $mob=NULL){
     switch ($choice){
         case 'hot':
             $ret ='<div class="ribbon home 5"><span>hot</span></div>';
-            if ($mob == 'left'){$ret ='<div class="ribbon home 1" style="left: 10px;"><span>hot</span></div>';}elseif($mob == 'right'){$ret ='<div class="ribbon home 1" style="left: 0px;"><span>hot</span></div>';}
+            if ($mob === 'left'){$ret ='<div class="ribbon home 1" style="left: 10px;"><span>hot</span></div>';}elseif($mob === 'right'){$ret ='<div class="ribbon home 1" style="left: 0;"><span>hot</span></div>';}
             break;
         case 'new':
             $ret ='<div class="ribbon home new-home"><span style="background: linear-gradient(#ffcd00 0%, #ffcd00 100%);color: #212d33;">New</span></div>';
-            if ($mob == 'left'){$ret ='<div class="ribbon home new-home" style="left: 10px;"><span>New</span></div>';}elseif($mob == 'right'){$ret ='<div class="ribbon home new-home" style="left: 0px;"><span>New</span></div>';}
+            if ($mob === 'left'){$ret ='<div class="ribbon home new-home" style="left: 10px;"><span>New</span></div>';}elseif($mob === 'right'){$ret ='<div class="ribbon home new-home" style="left: 0;"><span>New</span></div>';}
             break;
         case 'exclusive':
             $ret ='<div class="ribbon home exclusive"><span style="background: #990d0d ;">Exclusive</span></div>';
-            if ($mob == 'left'){$ret ='<div class="ribbon home exclusive" style="left: 10px;"><span>Exclusive</span></div>';}elseif($mob == 'right'){$ret ='<div class="ribbon home exclusive" style="left: 0px;"><span>Exclusive</span></div>';}
+            if ($mob === 'left'){$ret ='<div class="ribbon home exclusive" style="left: 10px;"><span>Exclusive</span></div>';}elseif($mob === 'right'){$ret ='<div class="ribbon home exclusive" style="left: 0;"><span>Exclusive</span></div>';}
             break;
     }
     return $ret;
@@ -23,7 +23,7 @@ $localIso =  $GLOBALS['visitorsISO']; //Αν η χωρα ειναι ενεργο
 $feautred = WordPressSettings::getFeaturedFrontpage();
 $image = get_post_meta($feautred['featured'], 'casino_custom_meta_comp_screen_1', true);
 $casinoBonusPage = get_post_meta($feautred['featured'], 'casino_custom_meta_bonus_page', true);
-$bonusISO = get_bonus_iso($casinoBonusPage);
+$bonusISO = get_bonus_iso($feautred['featured']);
 ?>
     <div class="container">
         <?php echo get_post_meta($feautred['featured'],$localIso.'bs_custom_meta_exclusive',true); ?>
@@ -43,10 +43,10 @@ $bonusISO = get_bonus_iso($casinoBonusPage);
                                 $casinoBonusPage = get_post_meta($feautred['featured'], 'casino_custom_meta_bonus_page', true);
                                 $bonusName = get_post_meta($casinoBonusPage, 'bonus_custom_meta_bonus_offer', true);
 
-                                echo get_post_meta($bonusName, $bonusISO . "bs_custom_meta_cta_for_top", true) . '<br>' .  get_post_meta($bonusName, $bonusISO . 'bs_custom_meta_cta_for_top_2', true); ?>
+                                echo get_post_meta($feautred['featured'], $bonusISO . "casino_custom_meta_cta_for_top", true) . '<br>' .  get_post_meta($feautred['featured'], $bonusISO . 'casino_custom_meta_cta_for_top_2', true); ?>
                             </div>
                             <?php
-                            if ($GLOBALS['countryISO'] == 'gb') {
+                            if ($GLOBALS['countryISO'] === 'gb') {
                                 ?>
                             <div class="w-45 w-md-60 text-center d-block mx-auto " style="border: 1px solid #ffcd00; padding: 3px 1px;margin: 10px 0;">
                             <?php
@@ -60,7 +60,7 @@ $bonusISO = get_bonus_iso($casinoBonusPage);
                               if (get_post_meta($bonusName, $bonusISO . 'bs_custom_meta_bc_code', true)) {
                                     echo 'Bonus Code: ' . get_post_meta($bonusName, $bonusISO . 'bs_custom_meta_bc_code', true);
                                 } else {
-                                  if ( get_post_meta($bonusName, $bonusISO.'bs_custom_meta_exclusive', true) == 'on'){
+                                  if ( get_post_meta($feautred['featured'], $bonusISO.'casino_custom_meta_exclusive', true) === 'on'){
                                       echo 'EXCLUSIVE';
                                   }
                                   else{
@@ -73,11 +73,11 @@ $bonusISO = get_bonus_iso($casinoBonusPage);
                             </div>
                             <div class="promo-details-tc" style="font-size: 10px;">
                                 <?php
-                                if (get_post_meta($bonusName, $localIso . "bs_custom_meta_sp_terms_link", true)) {
-                                    echo '<a class="bumper" data-casinoid="'.$feautred['featured'].'" data-country="'.$localIso.'" style="color:#fff;" href="' . get_post_meta($bonusName, $localIso . "bs_custom_meta_sp_terms_link", true) . '" target="_blank" rel="nofollow">' . get_post_meta($bonusName, $localIso . "bs_custom_meta_sp_terms", true) . '</a>';
+                                if (get_post_meta($feautred['featured'], $localIso . "casino_custom_meta_sp_terms_link", true)) {
+                                    echo '<a class="bumper" data-casinoid="'.$feautred['featured'].'" data-country="'.$localIso.'" style="color:#fff;" href="' . get_post_meta($feautred['featured'], $localIso . "casino_custom_meta_sp_terms_link", true) . '" target="_blank" rel="nofollow">' . get_post_meta($feautred['featured'], $localIso . "casino_custom_meta_sp_terms", true) . '</a>';
                                 } else {
-                                    if (get_post_meta($bonusName, $localIso . "bs_custom_meta_sp_terms", true)) {
-                                        echo get_post_meta($bonusName, $localIso . "bs_custom_meta_sp_terms", true);
+                                    if (get_post_meta($feautred['featured'], $localIso . "casino_custom_meta_sp_terms", true)) {
+                                        echo get_post_meta($feautred['featured'], $localIso . "casino_custom_meta_sp_terms", true);
 //                                        echo 'T&C\'s Apply';
                                     }
                                 } ?>
@@ -104,10 +104,10 @@ $bonusISO = get_bonus_iso($casinoBonusPage);
             ];
             foreach ($feauterdcasinos as $dataID=>$label) {
 
-                $casinoBonusPage = get_post_meta($dataID, 'casino_custom_meta_bonus_page', true);
-                $bonusISO = get_bonus_iso($casinoBonusPage);
-                $bonusName = get_post_meta($casinoBonusPage, 'bonus_custom_meta_bonus_offer', true);
-               $bonusCTA = get_post_meta($bonusName, $bonusISO . 'bs_custom_meta_cta_for_top', true);
+//                $casinoBonusPage = get_post_meta($dataID, 'casino_custom_meta_bonus_page', true);
+                $bonusISO = get_bonus_iso($dataID);
+//                $bonusName = get_post_meta($casinoBonusPage, 'bonus_custom_meta_bonus_offer', true);
+               $bonusCTA = get_post_meta($dataID, $bonusISO . 'casino_custom_meta_cta_for_top', true);
 
                 $arr = explode(' ', $bonusCTA);
                 $last = array_pop($arr);
@@ -115,7 +115,7 @@ $bonusISO = get_bonus_iso($casinoBonusPage);
                 array_splice( $words, -1 );
                 $str = implode( " ", $words );
 
-               $bonusCTA2 = get_post_meta($bonusName, $bonusISO . 'bs_custom_meta_cta_for_top_2', true);
+               $bonusCTA2 = get_post_meta($dataID, $bonusISO . 'casino_custom_meta_cta_for_top_2', true);
                 $new = explode (' ', $bonusCTA2, 3);
                 $string = $new[2];
 
@@ -161,11 +161,11 @@ $bonusISO = get_bonus_iso($casinoBonusPage);
 <!--                    <i class="fa fa-times-circle-o" data-id="gadgets-cont" id="close" aria-hidden="true" style="opacity: 0.6;position: absolute;right: -7px;top: -24px;font-size: 27px;z-index: 9999;color: #212d33;"></i>-->
 
                         <div class="col-12 d-flex flex-column pr-0 pl-0">
-                            <img class="img-fluid d-block mx-auto" loading="lazy" src="<?= get_post_meta($feautred['featured'], 'casino_custom_meta_trans_logo', true); ?>" alt="<?php echo get_the_title($feautred['featured']); ?>" style="max-height: 80px; height: 80px;">
+                            <img class="img-fluid d-block mx-auto" loading="lazy" src="<?php echo get_post_meta($feautred['featured'], 'casino_custom_meta_trans_logo', true); ?>" alt="<?php echo get_the_title($feautred['featured']); ?>" style="max-height: 80px; height: 80px;">
 
                             <?php
 
-                            $bonusCTA = get_post_meta($bonusName, $bonusISO . 'bs_custom_meta_cta_for_top', true);
+                            $bonusCTA = get_post_meta($dataID, $bonusISO . 'casino_custom_meta_cta_for_top', true);
 
                             $arr = explode(' ', $bonusCTA);
                             $last = array_pop($arr);
@@ -173,7 +173,7 @@ $bonusISO = get_bonus_iso($casinoBonusPage);
                             array_splice( $words, -1 );
                             $str = implode( " ", $words );
 
-                            $bonusCTA2 = get_post_meta($bonusName, $bonusISO . 'bs_custom_meta_cta_for_top_2', true);
+                            $bonusCTA2 = get_post_meta($dataID, $bonusISO . 'casino_custom_meta_cta_for_top_2', true);
                             $new = explode (' ', $bonusCTA2, 3);
                             $string = $new[2];
 
@@ -189,11 +189,11 @@ $bonusISO = get_bonus_iso($casinoBonusPage);
                                 <?php
                                 $casinoBonusPage = get_post_meta($feautred['featured'], 'casino_custom_meta_bonus_page', true);
                                 $bonusISO = get_bonus_iso($casinoBonusPage);
-                                $bonusName = get_post_meta($casinoBonusPage, 'bonus_custom_meta_bonus_offer', true);
-                                if (get_post_meta($bonusName, $bonusISO . 'bs_custom_meta_bc_code', true)) {
+//                                $bonusName = get_post_meta($casinoBonusPage, 'bonus_custom_meta_bonus_offer', true);
+                                if (get_post_meta($feautred['featured'], $bonusISO . 'casino_custom_meta_bc_code', true)) {
                                     echo 'Bonus Code: ' . get_post_meta($bonusName, $bonusISO . 'bs_custom_meta_bc_code', true);
                                 } else {
-                                    if ( get_post_meta($bonusName, $bonusISO.'bs_custom_meta_exclusive', true) == 'on'){
+                                    if ( get_post_meta($feautred['featured'], $bonusISO.'casino_custom_meta_exclusive', true) === 'on'){
                                         echo 'EXCLUSIVE';
                                     }
                                     else{
@@ -216,10 +216,10 @@ $bonusISO = get_bonus_iso($casinoBonusPage);
 
                 <div class="promo-details-tc col-12 bg-yellowish">
                     <?php
-                    if (get_post_meta($bonusName, $bonusISO . "bs_custom_meta_sp_terms_link", true)) {
-                        echo '<a class="bumper text-9 text-grey text-italic text-center mb-0 p-5p" data-casinoid="'.$feautred['featured'].'" data-country="'.$bonusISO.'" style="color:#d7dcdf;" href="' . get_post_meta($bonusName, $bonusISO . "bs_custom_meta_sp_terms_link", true) . '" target="_blank" rel="nofollow">' . get_post_meta($bonusName, $bonusISO . "bs_custom_meta_sp_terms", true) . '</a>';
+                    if (get_post_meta($feautred['featured'], $bonusISO . "casino_custom_meta_sp_terms_link", true)) {
+                        echo '<a class="bumper text-9 text-grey text-italic text-center mb-0 p-5p" data-casinoid="'.$feautred['featured'].'" data-country="'.$bonusISO.'" style="color:#d7dcdf;" href="' . get_post_meta($feautred['featured'], $bonusISO . "casino_custom_meta_sp_terms_link", true) . '" target="_blank" rel="nofollow">' . get_post_meta($feautred['featured'], $bonusISO . "casino_custom_meta_sp_terms", true) . '</a>';
                     } else {
-                        if (get_post_meta($bonusName, $bonusISO . "bs_custom_meta_sp_terms", true)) {
+                        if (get_post_meta($feautred['featured'], $bonusISO . "casino_custom_meta_sp_terms", true)) {
                             echo '<p class="position-relative white-space-initial text-9 text-grey text-italic text-center mb-0 p-5p" data-casinoid="'.$post->ID.'" data-country="'.$countryISO.'">'.get_post_meta($bonusName, $countryISO."bs_custom_meta_sp_terms", true).'</p>';
                         }
                     } ?>
