@@ -40,18 +40,20 @@ $fieldsToUpdate = [
 $activeCountries = WordPressSettings::getCountryEnabledSettings();
 $activeCountriesWithNames = WordPressSettings::getCountryEnabledSettingsWithNames();
 
-//if (!get_option('slugupdate')) {
-//    foreach (get_all_posts('kss_casino') as $postID) {
-//        $bonusPage = get_post_meta($postID,'casino_custom_meta_bonus_page',true);
-//        $slug = get_post_field( 'post_name', $bonusPage );
-//        $update_args = array(
-//            'ID' => $postID,
-//            'post_name' => $slug,
-//        );
-//        wp_update_post($update_args);
-//    }
-//    update_option('slugupdate', true);
-//}
+if (!get_option('slugupdate')) {
+    foreach (get_all_posts('kss_casino') as $postID) {
+        $bonusPage = get_post_meta($postID,'casino_custom_meta_bonus_page',true);
+        $slug = get_post_field( 'post_name', $bonusPage );
+        $title = get_the_title($bonusPage);
+        $update_args = array(
+            'ID' => $postID,
+            'post_title'   => $title,
+            'post_name' => $slug,
+        );
+        wp_update_post($update_args);
+    }
+    update_option('slugupdate', true);
+}
 ?>
 <div class="">
     <div class="col-12 p-3">
