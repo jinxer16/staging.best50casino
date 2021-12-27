@@ -26,7 +26,7 @@ $pieces = explode(",", $fieldsToRead);
 array_push($pieces, $prefix."bonus_contries_filled");
 //$doupdate = [$fieldsToRead];
 $fieldsToUpdate = ['exclusive','no_bonus','no_bonus_code','_is_free_spins','_is_no_dep','_is_vip','promo_code', 'bonus_type','spins_type','cashback_type','min_dep', 'bc_code','cta_for_top','cta_for_top_2','bc_perc','wag_b','wag_d', 'wag_s','bonus_contries_filled'];
-//if (!get_option('bonusMeAddLast')) {
+if (!get_option('bonusMeAddLast')) {
     $prefixbonus = 'bs_custom_meta_';
 foreach (get_all_posts('kss_casino') as $postID) {
 
@@ -51,8 +51,8 @@ foreach (get_all_posts('kss_casino') as $postID) {
         }
     }
 }
-//    update_option('bonusMeAddLast', true);
-//}
+    update_option('bonusMeAddLast', true);
+}
 ?>
 <div class="d-flex flex-wrap">
     <?php foreach ($activeCountriesWithNames as $iso => $name) {
