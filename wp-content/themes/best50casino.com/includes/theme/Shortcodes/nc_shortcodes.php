@@ -366,11 +366,11 @@ function table_cta_shortcode($atts)
             $jk = 0;
             foreach ($allCasinos as $casinoID) {
                 $resttricted= get_post_meta($casinoID, 'casino_custom_meta_rest_countries', true);
-                if ($jk <= $atts['limit'] && is_array($resttricted) && !in_array($countryISO,$resttricted)) {
+                if ($jk <= $atts['limit'] && !in_array($countryISO,$resttricted)) {
                     $isCasinoPremium = in_array($casinoID, $premiumCasinos);
                     $i = $isCasinoPremium ? '<span><img src="https://www.best50casino.com/wp-content/uploads/2018/05/favicon.png" loading="lazy" width="17" height="17" alt="premium" data-toggle="tooltip" title="Premium" ></span>' : '';
 
-                    if (is_array($resttricted) && in_array($countryISO, $resttricted)) {
+                    if (in_array($countryISO, $resttricted)) {
                         $trClass = 'disabledRow';
                         $btnDisable = 'disabled';
                         $affiLink = 'javascript:void(0)';
