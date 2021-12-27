@@ -12,47 +12,47 @@ $casinoPayments = get_post_meta($post->ID,'casino_custom_meta_dep_options',true)
 $casinoPayments = is_array($casinoPayments) ? array_flip($casinoPayments) : [];
 
 
-//$fieldsToRead ='';
-//
-//foreach ($activeCountriesWithNames as $iso => $name) {
-//    if(isset($casinoRestrictions[$iso]))continue;
-//    $fieldsToRead .= $iso.$prefix.'exclusive'.",".$iso.$prefix.'no_bonus'.",".$iso.$prefix.'no_bonus_code'.",".$iso.$prefix.'_is_free_spins'.",".$iso.$prefix.'_is_no_dep'.",".$iso.$prefix.'_is_vip'.",".
-//        $iso.$prefix.'bonus_type'.",".$iso.$prefix.'spins_type'.",".$iso.$prefix.'cashback_type'.",".$iso.$prefix.'min_dep'.",".
-//        $iso.$prefix.'bc_code'.",".$iso.$prefix.'cta_for_top'.",".$iso.$prefix.'cta_for_top_2'.",".$iso.$prefix.'bc_perc'.",".$iso.$prefix .'wag_b'.",".$iso.$prefix.'wag_d'.",".$iso.$prefix.'wag_s'.",".$iso.$prefix.'bonus_types';
-//}
-//
-//$pieces = explode(",", $fieldsToRead);
-//
-//array_push($pieces, $prefix."bonus_contries_filled");
-////$doupdate = [$fieldsToRead];
-//$fieldsToUpdate = ['exclusive','no_bonus','no_bonus_code','_is_free_spins','_is_no_dep','_is_vip','promo_code', 'bonus_type','spins_type','cashback_type','min_dep', 'bc_code','cta_for_top','cta_for_top_2','bc_perc','wag_b','wag_d', 'wag_s','bonus_contries_filled'];
-//if (!get_option('bonusMeAddLast')) {
-//    $prefixbonus = 'bs_custom_meta_';
-//foreach (get_all_posts('kss_casino') as $postID) {
-//
-//    update_post_meta($postID, '_casino_bonus_details_fields', $pieces);
-//
-//    foreach ($activeCountriesWithNames as $iso => $name) {
-//        $casinoRestrictionsOff = get_post_meta($postID,'casino_custom_meta_rest_countries',true);
-//        $casinoRestrictionsOff = is_array($casinoRestrictionsOff) ? array_flip($casinoRestrictionsOff) : [];
-//        if (isset($casinoRestrictionsOff[$iso])) continue;
-//        $bonusPage = get_post_meta($postID, 'casino_custom_meta_bonus_page', true);
-//        $bonusid = get_post_meta($bonusPage, 'bonus_custom_meta_bonus_offer', true);
-//        if ($bonusid) {
-//            foreach ($fieldsToUpdate as $fields) {
-//                if($fields === 'bonus_contries_filled'){
-//                    $value = get_post_meta($bonusid, $prefixbonus.$fields, true);
-//                    update_post_meta($postID, $prefix.$fields, $value);
-//                }else{
-//                    $value = get_post_meta($bonusid, $iso.$prefixbonus.$fields, true);
-//                    update_post_meta($postID, $iso.$prefix .$fields, $value);
-//                }
-//            }
-//        }
-//    }
-//}
-//    update_option('bonusMeAddLast', true);
-//}
+$fieldsToRead ='';
+
+foreach ($activeCountriesWithNames as $iso => $name) {
+    if(isset($casinoRestrictions[$iso]))continue;
+    $fieldsToRead .= $iso.$prefix.'exclusive'.",".$iso.$prefix.'no_bonus'.",".$iso.$prefix.'no_bonus_code'.",".$iso.$prefix.'_is_free_spins'.",".$iso.$prefix.'_is_no_dep'.",".$iso.$prefix.'_is_vip'.",".
+        $iso.$prefix.'bonus_type'.",".$iso.$prefix.'spins_type'.",".$iso.$prefix.'cashback_type'.",".$iso.$prefix.'min_dep'.",".
+        $iso.$prefix.'bc_code'.",".$iso.$prefix.'cta_for_top'.",".$iso.$prefix.'cta_for_top_2'.",".$iso.$prefix.'bc_perc'.",".$iso.$prefix .'wag_b'.",".$iso.$prefix.'wag_d'.",".$iso.$prefix.'wag_s'.",".$iso.$prefix.'bonus_types';
+}
+
+$pieces = explode(",", $fieldsToRead);
+
+array_push($pieces, $prefix."bonus_contries_filled");
+//$doupdate = [$fieldsToRead];
+$fieldsToUpdate = ['exclusive','no_bonus','no_bonus_code','_is_free_spins','_is_no_dep','_is_vip','promo_code', 'bonus_type','spins_type','cashback_type','min_dep', 'bc_code','cta_for_top','cta_for_top_2','bc_perc','wag_b','wag_d', 'wag_s','bonus_contries_filled'];
+if (!get_option('bonusMeAddLast')) {
+    $prefixbonus = 'bs_custom_meta_';
+foreach (get_all_posts('kss_casino') as $postID) {
+
+    update_post_meta($postID, '_casino_bonus_details_fields', $pieces);
+
+    foreach ($activeCountriesWithNames as $iso => $name) {
+        $casinoRestrictionsOff = get_post_meta($postID,'casino_custom_meta_rest_countries',true);
+        $casinoRestrictionsOff = is_array($casinoRestrictionsOff) ? array_flip($casinoRestrictionsOff) : [];
+        if (isset($casinoRestrictionsOff[$iso])) continue;
+        $bonusPage = get_post_meta($postID, 'casino_custom_meta_bonus_page', true);
+        $bonusid = get_post_meta($bonusPage, 'bonus_custom_meta_bonus_offer', true);
+        if ($bonusid) {
+            foreach ($fieldsToUpdate as $fields) {
+                if($fields === 'bonus_contries_filled'){
+                    $value = get_post_meta($bonusid, $prefixbonus.$fields, true);
+                    update_post_meta($postID, $prefix.$fields, $value);
+                }else{
+                    $value = get_post_meta($bonusid, $iso.$prefixbonus.$fields, true);
+                    update_post_meta($postID, $iso.$prefix .$fields, $value);
+                }
+            }
+        }
+    }
+}
+    update_option('bonusMeAddLast', true);
+}
 ?>
 <div class="d-flex flex-wrap">
     <?php foreach ($activeCountriesWithNames as $iso => $name) {
