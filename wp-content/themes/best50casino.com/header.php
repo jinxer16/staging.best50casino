@@ -17,7 +17,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="author" content="best50casino.com" />
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="robots" content="index, follow" />
+<meta name="robots" content="noindex,nofollow" />
 <link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/favicon.png">
 <title><?php echo str_replace(array("'", "\"", "&quot;", "\n"), '',get_post_meta($post->ID, '_yoast_wpseo_title', true)) ?:  str_replace(array("'", "\"", "&quot;", "\n"), '',get_the_title($post->ID)); ?></title>
 <meta property="og:title" content="<?php echo str_replace(array("'", "\"", "&quot;", "\n"), '',get_post_meta($post->ID, '_yoast_wpseo_title', true)) ?: get_the_title($post->ID); ?>"/>
