@@ -1,0 +1,123 @@
+$primary: #03898f;
+$brand-primary: #03898f;
+$navbar-default-link-hover-color: $brand-primary;
+$secondary: #ffcd00;
+$danger: #e41d06;
+$brand-danger: $danger;
+$state-danger-text: #e41d06;
+$success: #1bbe00;
+$brand-success: $success;
+$state-success-text: $success;
+$dark:#212d33;
+$sidebar-hover: #fff300;
+$filters-title: #0a4a66;
+$brand-dark: $dark;
+$state-dark-text: $dark;
+$state-dark-bg: $dark;
+$light: rgba(248, 249, 250, 0.17);
+$brand-light: rgba(248, 249, 250, 0.17);
+$warning: #f25a29;
+$brand-warning: $warning;
+$state-warning-text: $brand-warning;
+$state-warning-bg: $brand-warning;
+$white: #fff;
+$nav-link-hover-bg: $white;
+$shadow: #507abd;
+$bgColor: #5d84c3;
+$ribbonColor: #f39e00;
+$bg-grey: #d7dcdf;
+$body-bg: #d7dcdf;
+$page-bg: #f6f6f8;
+$page-shadow: 0 3px 3px #999;
+$blackjack-step-heading: #5e6a86;
+$padding-small-vertical: 4px;
+$info: #343434;
+$brand-info: $info;
+$state-info-text: $brand-info;
+$state-info-bg: $brand-info;
+$border-radius-base: 0;
+$headings-font-weight: 600;
+$navbar-margin-bottom: -4px;
+$font-size-base: 0.9375rem;
+$font-size-large: ceil(($font-size-base * 1.10));
+$font-size-small: ($font-size-base * 0.86);
+$font-size-h1: 2.25rem;
+$font-size-h2: 19px;
+$font-size-h3: 18px;
+$h4-font-size: 16px;
+$font-size-norm: 15px;
+$badge-font-weight: none;
+$font-family-sans-serif: 'Open Sans', sans-serif !default;
+$font-family-monospace: ' ' !default;
+$font-family-base: $font-family-sans-serif !default;
+$grid-gutter-width: 20px !default;
+$container-large-desktop: 1280px;
+//$container-max-widths: (
+//        sm: 100%,
+//        md: 750px,
+//        lg: 1170px,
+//        xl: 1380px
+//);
+
+$container-max-widths: (
+        sm: 540px,
+        md: 990px,
+        lg: 1320px,
+        xl: 1380px
+);
+$grid-breakpoints: (
+        xs: 0, // Extra small screen / phone
+        sm: 576px, // Small screen / phone
+        md: 700px, // Medium screen / tablet
+        lg: 992px, // Large screen / desktop
+        xl: 1400px // Extra large screen / wide desktop
+);
+$sizes: ();
+$sizes: map-merge(
+                (
+                        5:5%,
+                        10:10%,
+                        12:12%,
+                        15:15%,
+                        16:16%,
+                        19:19%,
+                        20:20%,
+                        24:24%,
+                        25:25%,
+                        29:29%,
+                        30:30%,
+                        32:32%,
+                        40:40%,
+                        45:45%,
+                        33:33.33%,
+                        48: 48%,
+                        49: 49%,
+                        50: 50%,
+                        55: 55%,
+                        60: 60%,
+                        66: 66.66%,
+                        69 :69%,
+                        70: 70%,
+                        75: 75%,
+                        80: 80%,
+                        85: 85%,
+                        90: 90%,
+                        95: 95%,
+                        98: 98%,
+                        100: 100%,
+                        auto: auto
+                ),
+                $sizes
+);
+$nameSpace:'best50';
+//HOVER OPTIONS
+$primaryColor: $primary;
+$secondaryColor: #666;
+$highlightColor: #ccc;
+$activeColor: $secondary;
+$shadowColor: rgba(0, 0, 0, .6);
+// Curl colors
+$revealAreaColor: $white;    // reveal area behind the curl
+$curlLineColor: #aaa;       // crease line
+$curlTransitionColor: #ccc;	// color transitioning from crease line to final color
+$curlLastColor: $white;		// final color of the back of the curl

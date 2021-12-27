@@ -1,0 +1,20 @@
+div#tableProperties-body, div#coloriseCell-body {
+    display: flex !important;
+    justify-content: space-between;
+}
+div#tableProperties-body div.active,
+div#coloriseCell-body div.active,
+div#tableHeight-body div.active {
+    background: #0d71bb !important;
+}
+div#tableProperties-body div.active button,
+div#coloriseCell-body div.active button,
+div#tableHeight-body div.active button{
+    color: white !important;
+}
+#selectTable-preview-body table.pointer{
+    cursor:pointer;
+}
+.mce-container-body.mce-window-body.mce-abs-layout {
+    overflow-y: scroll;
+}

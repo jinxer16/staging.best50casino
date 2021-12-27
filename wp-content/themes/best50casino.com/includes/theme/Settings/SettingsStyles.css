@@ -1,0 +1,40 @@
+.items{
+    display: flex;
+}
+ol.ui-sortable li{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 2px;
+}
+.pointer {cursor: pointer;}
+.w-10{
+    width: 10% !important;
+}
+.w-33 {
+    width: 33% !important;
+}
+.w-24 {
+    width: 24% !important;
+}
+.nav-pills .nav-link.active {
+    font-weight: bolder;
+    background-color: #44c6b7 !important;
+    color: black !important;
+}
+.nav-pills .nav-link {
+    border-radius: .25rem;
+    margin: 0.7px;
+    border: 1px solid black;
+    color: black;
+    background: #ffec392b;
+}
+button.removeOne, button.addNew {
+    min-width: 74px;
+}
+.w-45{
+    width: 45%;
+}.w-9{
+    width: 9%;
+}

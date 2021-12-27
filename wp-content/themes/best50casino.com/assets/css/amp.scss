@@ -1,0 +1,1132 @@
+@import "../../includes/theme/assets/css/custom.scss";
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+a {
+  color: #03898f;
+  text-decoration: underline;
+}
+.text-decoration-none{
+  text-decoration: none;
+}
+a.text-decoration-none{
+  text-decoration: none;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+$colors:(
+
+        primary: $primary,
+        secondary: $secondary,
+        danger: $danger,
+        warning: $warning,
+        success: $success,
+        dark: $dark,
+        light: $light,
+        whitte: $white,
+        light-grey: #d7dcdf
+);
+$sides: (top, bottom, left, right); // Leave this variable alone
+.border{
+  border: 1px solid;
+}
+.rounded-5{
+  border-radius: 5px;
+}
+.rounded-15{
+  border-radius: 15px;
+}
+@each $side in $sides {
+  .border-#{$side} {
+    border-#{$side}: 1px solid;
+  }
+}
+@each $key, $val in $colors {
+  .text-#{$key} {
+    color: #{$val};
+  }
+  .bg-#{$key} {
+    background-color: #{$val};
+  }
+  .border-#{$key} {
+    border-color: #{$val};
+  }
+}
+@each $key, $val in $sizes {
+  .w-#{$key} {
+    width: #{$val};
+  }
+}
+.bg-yellow{
+  background-color: #FFCD00;
+}
+.bg-gray-light {
+  background-color: #d2dce1;
+}
+.bg-gray {
+  background-color: #bcc8cf;
+}
+.bg-blue{
+  background-color: #00adffe0;
+}
+.text-muted {
+  color: #6c757d;
+}
+.shadow-box {
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+  -moz-box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+}
+.roundbutton {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.font-weight-thick {
+  font-weight: 900;
+}
+.font-weight-bold{
+  font-weight: 700;
+}
+.container {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+//rows
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+//col
+.col-1, .col-2, .col-3,  .col-5, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12{
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.col-4{
+  width: 33.33%;
+}
+.col-6{
+  width: 50%;
+}
+.m-0{
+  margin: 0;
+}
+.p-0{
+  padding: 0;
+}
+.pr-0{
+  padding-right: 0;
+}
+.pl-0{
+  padding-left: 0;
+}
+.text-black {
+  color: #000000;
+}
+.text-nowrap{
+  white-space: nowrap;
+}
+//texts
+
+.text-sm-13 {
+  font-size: 13px;
+}
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+.text-uppercase{
+  text-transform: uppercase;
+}
+$spaceamounts: (0, 1, 2, 3,4, 5,6, 7,8,9, 10,11,12,13, 15,16,18, 20, 24, 25, 30, 35, 40,50, 60 ,70,80,90); // Adjust this to include the pixel amounts you need.
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space}p {
+      margin-#{$side}: #{$space}px;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$space}p {
+      padding-#{$side}: #{$space}px;
+    }
+    .#{$side}-#{$space}{
+      #{$side}: #{$space}px;
+    }
+    .#{$side}-m-#{$space}{
+      #{$side}: -#{$space}px;
+    }
+  }
+  @if $space > 8 {
+    .text-#{$space} {
+      font-size: #{$space}px;
+    }
+  }
+  @if $space <5 {
+    .border-#{$space} {
+      border-width: #{$space}px;
+    }
+  }
+  .m-#{$space}p {
+    margin: #{$space}px;
+  }
+  .p-#{$space}p {
+    padding: #{$space}px;
+  }
+}
+$positions: ('relative','absolute','sticky','fixed','static');
+@each $position in $positions {
+  .position-#{$position} {
+    position: #{$position};
+  }
+}
+body {
+  font-size: 15px;
+  font-family: 'Open Sans', 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.55;
+}
+.z-102{
+  z-index: 102;
+}
+.z-100{
+  z-index: 100;
+}
+
+.z-99{
+  z-index: 99;
+}
+.z-98{
+  z-index: 98;
+}
+.list-unstyled{
+  list-style: none;
+}
+.pointer{
+  cursor: pointer;
+}
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}
+//displays
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.d-none{
+  display: none;
+}
+.d-flex{
+  display: flex;
+}
+.d-block{
+  display: block;
+}
+.d-inline-block{
+  display: inline-block;
+}
+//margins
+.ml-auto, .mx-auto {
+  margin-left: auto ;
+}
+.mr-auto, .mx-auto {
+  margin-right: auto ;
+}
+.m-auto {
+  margin: auto;
+}
+.h-100{
+  height: 100%;
+}
+.overflow-hidden{
+  overflow: hidden;
+}
+//flex flows
+.flex-wrap{
+  flex-flow: wrap;
+}
+.flex-row{
+  flex-flow: row;
+}
+.flex-column{
+  flex-flow: column;
+}
+
+//justify
+
+.justify-content-center{
+  justify-content: center;
+}
+.justify-content-start{
+  justify-content: flex-start;
+}
+.justify-content-end{
+  justify-content: flex-end;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+.align-self-center{
+  align-self: center;
+}
+
+//align
+.align-items-center{
+  align-items: center;
+}
+.align-items-start{
+  align-items: flex-start;
+}
+.align-items-end{
+  align-items: flex-end;
+}
+.shadow{
+  box-shadow: #868686b5 2px 1px 5px 1px;
+}
+.border-dashed{
+  border: 2px dashed $primary;
+}
+/* Styles for the selector based tabs */
+amp-selector[role=tablist].tabs-with-selector {
+  display: flex;
+}
+amp-selector[role=tablist].tabs-with-selector [role=tab][selected] {
+  outline: none;
+  /* custom styling, feel free to change */
+  background: #263238;
+  color: #fff;
+
+}
+amp-selector[role=tablist].tabs-with-selector {
+  display: flex;
+}
+amp-selector[role=tablist].tabs-with-selector [role=tab] {
+  /* custom styling, feel free to change */
+  float: left;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+amp-selector.tabpanels [role=tabpanel] {
+  display: none;
+  /* custom styling, feel free to change */
+  padding: var(--space-4);
+}
+amp-selector.tabpanels [role=tabpanel][selected] {
+  outline: none;
+  display: block;
+}
+.headerbar {
+  height: 55px;
+  z-index: 999;
+  top: 0;
+}
+.site-name {
+  margin: auto;
+}
+.sidebar a {
+  text-decoration: none;
+}
+.close-sidebar {
+  font-size: 1.5em;
+  padding-left: 5px;
+}
+#sidebar1 ul li span[class^="icon-"] { width: 35px; }
+#greek-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/greeceicon.png) no-repeat; background-size: 18px 18px; padding-left: 24px; }
+#mobile-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/mobilecasino_icon.svg) no-repeat; }
+#free-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/freespins.svg) no-repeat; }
+#guides-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/casinoworld_icon.svg) no-repeat; }
+#cards-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/casinospel_icon.svg) no-repeat; }
+#roulette-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/roulette_menu_icon.svg) no-repeat; }
+#keno-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/keno_menu_icon.svg) no-repeat; }
+#dealer-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/dealer_menu_icon.svg) no-repeat; }
+#spades-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/spades_menu_icon.svg) no-repeat; }
+#scratch-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/scratch_menu_icon.svg) no-repeat; }
+#crabs-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/crabs_menu_icon.svg) no-repeat; }
+#fast-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/fast_menu_icon.svg) no-repeat; }
+#transac-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/credit-card.svg) no-repeat; }
+#soft-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/tv-ad_icon.svg) no-repeat; }
+#land-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/natcasinon.svg) no-repeat; }
+#love-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/populart_icon.svg) no-repeat; }
+#safe-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/safe_menu_icon.svg) no-repeat; }
+#rogue-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/rogue_menu_icon.svg) no-repeat; }
+#live-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/live_menu_icon.svg) no-repeat; }
+#bingo-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/bingo_menu_icon.svg) no-repeat; }
+#pay-casino a { background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/payments.svg) no-repeat; }
+#sidebar1 ul li a {     background-size: 20px; }
+.list-typenone{
+  list-style-type: none ;
+}
+.rounded-circle{
+  border-radius: 50%;
+}
+.rounded{
+  border-radius: .25rem
+}
+//page main
+.page-shadow {
+  box-shadow: 0 3px 3px #999;
+}
+.page-bg {
+  background-color: #f6f6f8;
+}
+//footer
+footer b {
+  color: #eee;
+  border-bottom: 0.5px solid;
+}
+#bottomNavbar {
+  background: #03898f;
+  background: linear-gradient(180deg, #03898f 2%, #03898f 52%, #01595d 100%);
+  z-index: 9;
+}
+#bottomNavbar li a:before {
+  display: block;
+  background-size: 25px;
+  color: white ;
+  width: 25px;
+  height: 25px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+#bottomNavbar li {
+  border-right: 1px solid #e2e2e2;
+  line-height: 1.1;
+}
+#review-casino a:before {
+  content: ' ';
+  background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/review_menu_icon-white.svg) no-repeat;
+}
+#new-casino a:before {
+  content: ' ';
+  background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/new_menu_icon-white.svg) no-repeat;
+}
+#content-casino a:before {
+  background: url(/wp-content/themes/best50casino.com/assets/images/svg/content-folder.svg) no-repeat;
+  content: ' ';
+}
+#bonus-code a:before {
+  background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/bonus_menu_icon-white.svg) no-repeat;
+  content: ' ';
+}
+#promo-casino a:before {
+  content: ' ';
+  background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/campaign_menu_icon-white.svg) no-repeat;
+}
+span.no-o-promo {
+  background: red;
+  top: -13px;
+}
+.scroll {
+  right: 12%;
+  bottom: 75px;
+}
+.scroll:hover {
+  background: #e1bb1c;
+}
+.scroll:hover .fa {
+  padding-top:-10px;
+}
+.scroll .fa {
+  margin-top: -5px;
+}
+.alignleft {
+  float: left;
+  margin: 0 10px 5px 0;
+}
+.alignright{
+  float: right;
+  margin-left: 10px;
+}
+#review-casino a:before {
+  content: ' ';
+  background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/review_menu_icon-white.svg) no-repeat;
+}
+#new-casino a:before {
+  content: ' ';
+  background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/new_menu_icon-white.svg) no-repeat;
+}
+#bonus-code a:before {
+  background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/bonus_menu_icon-white.svg) no-repeat;
+  content: ' ';
+}
+#promo-casino a:before {
+  content: ' ';
+  background: url(https://www.best50casino.com/wp-content/themes/best50casino.com/assets/images/svg/campaign_menu_icon-white.svg) no-repeat;
+}
+
+.curl-top-right {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  background-position: -20px -20px;
+  background-size: 200% 200%;
+}
+.curl-top-right:after{
+  pointer-events: none;
+  position: absolute;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 0;
+  content: '50';
+  font-size: 26px;
+  align-items: center;
+  top: 1px;
+  color: #a0a0a0;
+  border: 2px dashed #03898f;
+  right: 0;
+  background-color: #e8e8e8;
+  width: 40px;
+  height: 42px;
+  z-index: 0;
+}
+.curl-top-right:before {
+  pointer-events: none;
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  top: 5px;
+  transform: rotate(20deg);
+  right: 15px;
+  background: linear-gradient(-135deg, transparent 45%, #1d2a30 50%, #1d2a30 56%, #3d494e 80%);
+  z-index: 1000;
+  -webkit-transition-duration: inherit;
+  transition-duration: inherit;
+  -webkit-transition-property: width, height;
+  transition-property: width, height;
+}
+.curl-top-right:before{
+  width: 32px;
+  height: 32px;
+}
+.bg-bonus-icons{
+  background-image: url("../wp-content/themes/best50casino.com/assets/images/icons/bonus-icons.png") ;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+}
+.cherry{background-position: 0 0;}
+.diamond{background-position: 0 -50px;}
+.crown{background-position: 0 -100px;}
+.bell{background-position: 0 -150px;}
+.chip{background-position: 0 -200px;}
+
+.bonus-ratings .progress-bar{
+  background: rgb(66,66,66);
+  background: linear-gradient(0deg, rgba(66,66,66,1) 0%, rgba(255,205,0,1) 38%, rgba(255,205,0,1) 100%);
+}
+
+.pretty-star { background-image: url("../wp-content/themes/best50casino.com/assets/images/star_full.svg"); }
+.icon-star { width: 100%;height: 100%; position: absolute; background-size: cover; background-repeat: no-repeat; background-image: url("../wp-content/themes/best50casino.com/assets/images/star_full.svg");}
+.star-voting.star-game .star-wrap-review { height: 16px;width: 16px;}
+.star-wrap-review-bg {
+  position: relative;
+  width: 17px;
+  height: 17px;
+  float: left;
+  border-right: 2px solid transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../wp-content/themes/best50casino.com/assets/images/star_empty.svg");
+}
+
+.star-wrap-review { position: relative; width: 21px;height: 21px;float: left;border-right: 2px solid transparent;background-size: cover;background-repeat: no-repeat;background-image: url("../wp-content/themes/best50casino.com/assets/images/star_empty.svg");}
+.star-wrap { position: relative; width: 21px;height: 21px;float: left;border-right: 2px solid transparent;background-size: cover;background-repeat: no-repeat;background-image: url("../wp-content/themes/best50casino.com/assets/images/star_empty.svg");}
+
+.star-temp .icon-star {background-image: none;}
+
+
+.widget2-new-heading{
+  background: rgb(3,137,143);
+  background: linear-gradient(180deg, rgba(3,137,143,1) 0%, rgba(12,142,148,1) 48%, rgba(48,48,48,1) 100%);
+  line-height: 1.1;
+}
+.widget2 {
+  -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+}
+.fa-times-circle:before {
+  content: "\f057";
+}
+.faq amp-accordion section[expanded]>h4.header{
+  background:$primary;
+  color: $white;
+}
+.faq amp-accordion section:not([expanded])>h4.header{
+  background:#ffffff;
+  color: $dark;
+}
+.cashbackcolor:nth-of-type(odd) {
+   background-color: #b1d5e270;
+ }
+.cashbackcolor:nth-of-type(even){
+  background-color: #f7f7f7;
+}
+.depocolor:nth-of-type(odd) {
+  background-color: #d2dce1;
+}
+.depocolor:nth-of-type(even){
+  background-color: #bcc8cf;
+}
+
+.tablestripe:nth-of-type(odd){
+  background-color: #d2dce1;
+}
+.tablestripe:nth-of-type(even){
+  background-color: #bcc8cf;
+}
+.list-stripped-blue li:first-of-type,.list-stripped-blue li:nth-of-type(4){
+  background-color: aliceblue;
+}
+.close-sidebar:focus,.hamburger:focus{
+  outline: none;
+}
+.btn-shiny {
+  overflow: hidden;
+}
+.btn-shiny:after {
+  animation: shine 1.5s infinite linear alternate;
+  content: "";
+  position: absolute;
+  top: -110%;
+  left: -210%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  transform: rotate(0deg);
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient( to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0.0) 100% );
+}
+@keyframes shine{
+  10% {
+    opacity: 1;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 4.7s, 4.7s, 2.15s;
+    transition-timing-function: ease;
+  }
+  100% {
+    opacity: 0;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+  }
+}
+.bg-gradient-grey {
+  background: linear-gradient(180deg, #d5d5d5 0%, #e4e4e4 30%, #d5d5d5 100%);
+  -webkit-box-shadow: inset 0px 1px 4px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 1px 4px -2px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 5px -3px rgba(0,0,0,0.75);
+}
+.bg-gradient-green {
+  background: linear-gradient(180deg, #03898f 0%, #03898f 30%, #b9b9b9 100%);
+  -webkit-box-shadow: inset 0px 1px 4px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 1px 4px -2px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 5px -3px rgba(0,0,0,0.75);
+}
+.stepper {
+  background: #020113;
+  background: linear-gradient(86deg, #020113 0%, #292828 48%, #000 100%);
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 1.2em;
+  line-height: 2.2em;
+  width: 34px;
+}
+.box.text-center .boxy p{
+  width: 72%;
+}
+.box-inner-block ul{
+  list-style: none;
+}
+.color-box{
+  color: #626262;
+}
+.box.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box.info {
+  background: #d6f6ff;
+  border-color: #BFE3EC;
+}
+.box.note {
+  background:linear-gradient(180deg, #ffcd0047 0%, #ffcd004d 48%, #30303000 100%);
+  border-color: #E9E59E;
+}
+.box.error{ background:#ffe6e2;	border-color: #EEBFB8;}
+.box.success{background:#e2f2cb; border-color: #D1E4B7;}
+
+.dail-bonus ul li:before{
+  content: '\f111';
+  font-family: 'FontAwesome';
+  color: #212d33;
+  font-size: 8px;
+  margin-right: 15px;
+  position: relative;
+  bottom: 2px;
+}
+.dail-bonus ul li:nth-child(odd) {
+  background-color: #e4e4e4;
+}
+.dail-bonus ul li:nth-child(even) {
+  background-color: #d3dfe5;
+}
+.list-striped div:nth-of-type(odd) {
+  background-color: rgba(0,0,0,0.05);
+}
+.circle-progress .progress::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 10px solid #d3d4d6;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.circle-progress .progress>span {
+  z-index: 1;
+}
+.circle-progress .progress .progress-bar {
+  border-width: 10px;
+  border-style: solid;
+}
+.circle-progress .progress .progress-left .progress-bar {
+  left: 100%;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border-left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+.circle-progress .progress .progress-right .progress-bar {
+  left: -100%;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-right: 0;
+  -webkit-transform-origin: center right;
+  transform-origin: center right;
+}
+.amp-geo-group-restricted .bumper {
+  pointer-events: none;
+  cursor: no-drop;
+  background: grey;
+}
+.amp-geo-group-restricted .bumper span {
+  display: none;
+}
+.amp-geo-group-restricted .bumper:after {
+  content: 'Restricted';
+}
+.amp-geo-group-restricted #bestCasinos .bumper:after {
+  content: "Restricted";
+  font-size: 11px;
+}
+.amp-geo-group-restricted #sticyBonus{
+  display: none;
+}
+.amp-geo-group-restricted #recommended-notification {
+  //padding: var(--space-2);
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  height: 100vh;
+  background: #212d33c7;
+  //flex-wrap: wrap;
+  overflow: hidden;
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index:101
+}
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #17f0fa;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(3,137,143,0.25);
+}
+.ribbon.hot, .ribbon.premium,.ribbon.new {
+  left: -5px;
+  top: -5px;
+  z-index: 1;
+  width: 75px;
+  height: 75px;
+}
+.ribbon.premium span {
+  background: blue;
+}
+.ribbon.hot span{
+  background: #79A70A;
+  background: linear-gradient(#D40000 0%, #990d0d 100%);
+}
+.ribbon.new span{
+  background: #79A70A;
+}
+.ribbon.hot span, .ribbon.premium span ,.ribbon.new span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  width: 100px;
+  display: block;
+  box-shadow: 0 3px 10px -5px #000;
+  position: absolute;
+  top: 19px;
+  left: -21px;
+}
+.ribbon.new>span::before,.ribbon.hot>span::before,.ribbon.premium>span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #0d770f;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #0d770f;
+}
+.ribbon.new>span::after,.ribbon.hot>span::after,.ribbon.premium>span::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #0d770f;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #0d770f;
+}
+.ribbon.hot>span::before{
+  border-left: 3px solid #990d0d;
+  border-top: 3px solid #990d0d;
+}
+.ribbon.hot>span::after{
+  border-right: 3px solid #990d0d;
+  border-top: 3px solid #990d0d;
+}
+.ribbon.premium>span::before {
+  border-left: 3px solid blue;
+  border-top: 3px solid blue;
+}
+.ribbon.premium>span::after {
+  border-right: 3px solid #0000c1;
+  border-top: 3px solid #0000c1;
+}
+
+.games-rat-title span{
+  padding-left: 20px;
+  background-position: left;
+  display: inline;
+}
+
+.title-game .free-casino{
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/freespins.svg') no-repeat;
+  background-size: contain;
+}
+.title-game .cards-casino {
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/casinospel_icon.svg') no-repeat;
+  background-size: contain;
+}
+.title-game .roulette-casino{
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/roulette_menu_icon.svg') no-repeat;
+  background-size: contain;
+}
+.title-game .bingo-casino{
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/bingo_menu_icon.svg') no-repeat;
+  background-size: contain;
+}
+.title-game .cards-casino{
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/casinospel_icon.svg') no-repeat;
+  background-size: contain;
+}
+.title-game .keno-casino{
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/keno_menu_icon.svg') no-repeat;
+  background-size: contain;
+}
+.title-game .spades-casino{
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/spades_menu_icon.svg') no-repeat;
+  background-size: contain;
+}
+.title-game .scratch-casino{
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/scratch_menu_icon.svg') no-repeat;
+  background-size: contain;
+}
+.title-game .crabs-casino{
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/crabs_menu_icon.svg') no-repeat;
+  background-size: contain;
+}
+ul.bill-mobil li::before {
+  content: '\f00c';
+  font-family: 'FontAwesome';
+  border-radius: 15px;
+  color: #ffffff;
+  padding: 5px;
+  background: rgb(5,84,124);
+  background: linear-gradient(90deg, rgba(5,84,124,1) 0%, rgba(0,112,168,1) 45%, rgba(1,143,214,1) 100%);
+  margin-right: 6px;
+}
+.rating-review {
+  --star-size: 3;  /* use CSS variables to calculate dependent dimensions later */
+  border: none;  /* to prevent flicker when mousing over border */
+  unicode-bidi: bidi-override; direction: rtl;  /* for CSS-only style change on hover */
+  user-select: none;  /* disable mouse/touch selection */
+  font-size: 3em;  /* fallback - IE doesn't support CSS variables */
+  font-size: calc(var(--star-size) * 13px);  /* because `var(--star-size)em` would be too good to be true */
+  /* disable touch feedback on cursor: pointer - http://stackoverflow.com/q/25704650/1269037 */
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+/* the stars */
+.rating-review > label {
+  width: 1.1em;  /* magic number to overlap the radio buttons on top of the stars */
+  width: calc(var(--star-size) / 3 * 1.1em);
+}
+.rating-review > *:hover,
+.rating-review > *:hover ~ label,
+.rating-review:not(:hover) > input:checked ~ label {
+  color: transparent;  /* reveal the contour/white star from the HTML markup */
+  cursor: inherit;  /* avoid a cursor transition from arrow/pointer to text selection */
+}
+.rating-review > *:hover:before,
+.rating-review > *:hover ~ label:before,
+.rating-review:not(:hover) > input:checked ~ label:before {
+  content: "\f005";
+  font-family: 'FontAwesome';
+  position: absolute;
+  left: 0;
+  color: gold;
+}
+.rating-review > input {
+  position: relative;
+  transform: scale(3);  /* make the radio buttons big; they don't inherit font-size */
+  transform: scale(var(--star-size));
+  /* the magic numbers below correlate with the font-size */
+  top: -0.5em;  /* margin-top doesn't work */
+  top: calc(var(--star-size) / 6 * -1em);
+  margin-left: -2.5em;  /* overlap the radio buttons exactly under the stars */
+  margin-left: calc(var(--star-size) / 6 * -5em);
+  z-index: 2;  /* bring the button above the stars so it captures touches/clicks */
+  opacity: 0;  /* comment to see where the radio buttons are */
+  font-size: initial; /* reset to default */
+}
+.amp-carousel-button-prev, .amp-carousel-button-next{
+  display: none;
+}
+.amp-carousel-button{
+  opacity:0;
+}
+.dots {
+  text-align: center;
+}
+.dots span {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 6px;
+  width: 8px;
+  height: 8px;
+  margin: 4px;
+}
+.dots span.current {
+  background: #555;
+}
+
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+
+
+.free-casino{
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/freespins.svg') no-repeat left;
+}
+.cards-casino {
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/casinospel_icon.svg') no-repeat left;
+}
+.scratch-casino {
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/scratch_menu_icon.svg') no-repeat left;
+}
+.spades-casino{
+  background: url('../wp-content/themes/best50casino.com/assets/images/svg/spades_menu_icon.svg') no-repeat left;
+}
+.card-disabled{
+  background: grey;filter: grayscale(100);
+}
+
+.list-content:nth-child(odd){
+  background: #e7edf1;
+}
+.list-content:nth-child(even) {
+  background: #d2dce1;
+}
+#content-casino a:focus{
+  background: #FFCD00;
+}
+#content-casino:visited{
+  background: #FFCD00;
+}
+
+@-webkit-keyframes tada {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  10% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes tada {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    -ms-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+.tada {
+  -webkit-animation: tada 2.5s infinite linear alternate;
+  animation: tada 2.5s infinite linear alternate;
+}
+.table-bordered th, .table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+.ratings-review .progress-bar {
+  background: linear-gradient(180deg, #03898f 0%, #0c8e94 48%, #303030 100%);
+}
+
+.element-item figure:hover:after {
+  content: "\f01d";
+  font-family: FontAwesome;
+  display: block;
+  position: absolute;
+  top: 0;
+  color: #ffffff;
+  text-align: center;
+  opacity: 1;
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8));
+  font-size: 35px;
+  height: 100%;
+  width: 100%;
+  padding-top: 38px;
+  z-index: 0;
+}
+
+//Bottom Menu
+.star {
+  height: 32px;
+  line-height: 30px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #03898f;
+  border-bottom: 3px solid #ffcd00;
+}
+.menu-burger ul li {
+  padding: 7px 7px;
+  border-bottom: 1px solid $dark;
+}
+.menu-burger  ul li:hover {
+  background: #ffcd009e;
+}
+.menu-burger  ul li a:hover {
+  color: $dark;
+}
+.menu-burger  ul li a{
+  padding-left: 10px;
+}
+.menu-burger ul {
+  background: #f7f7f7;
+  padding-inline-start: 0;
+}
+.btn-transp{
+  line-height: inherit;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+}
+.modal-content{
+  border: 1px solid rgba(0,0,0,0.2);
+}
+.form-control {
+  height: calc(1.5em + .5rem + 2px);
+  padding: .25rem .5rem;
+  font-size: .8203125rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+  font-weight: 400;
+  color: #495057;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+}
+#loginform-best50 input[type="text"],#loginform-best50 input[type="password"], #loginform-best50 input[type="email"]{
+  background-color: #efefef;
+}
+table{
+  max-width: 100%;
+  height:auto;
+}

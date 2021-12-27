@@ -1,0 +1,160 @@
+@import "custom.scss";
+@import "../../../../../../../../bootstrap44/functions";
+@import "../../../../../../../../bootstrap44/variables";
+@import "../../../../../../../../bootstrap44/mixins";
+@import "../../../../../../../../bootstrap44/root";
+@import "../../../../../../../../bootstrap44/reboot";
+@import "../../../../../../../../bootstrap44/type";
+@import "../../../../../../../../bootstrap44/images";
+@import "../../../../../../../../bootstrap44/code";
+@import "../../../../../../../../bootstrap44/grid";
+@import "../../../../../../../../bootstrap44/tables";
+@import "../../../../../../../../bootstrap44/forms";
+@import "../../../../../../../../bootstrap44/buttons";
+@import "../../../../../../../../bootstrap44/transitions";
+@import "../../../../../../../../bootstrap44/dropdown";
+//@import "../../../../../../../../bootstrap44/button-group";
+//@import "../../../../../../../../bootstrap44/input-group";
+//@import "../../../../../../../../bootstrap44/custom-forms";
+@import "../../../../../../../../bootstrap44/nav";
+@import "../../../../../../../../bootstrap44/navbar";
+//@import "../../../../../../../../bootstrap44/card";
+//@import "../../../../../../../../bootstrap44/breadcrumb";
+//@import "../../../../../../../../bootstrap44/pagination";
+//@import "../../../../../../../../bootstrap44/badge";
+//@import "../../../../../../../../bootstrap44/jumbotron";
+@import "../../../../../../../../bootstrap44/alert";
+@import "../../../../../../../../bootstrap44/progress";
+@import "../../../../../../../../bootstrap44/media";
+@import "../../../../../../../../bootstrap44/list-group";
+@import "../../../../../../../../bootstrap44/close";
+@import "../../../../../../../../bootstrap44/toasts";
+@import "../../../../../../../../bootstrap44/modal";
+//@import "../../../../../../../../bootstrap44/tooltip";
+//@import "../../../../../../../../bootstrap44/popover";
+@import "../../../../../../../../bootstrap44/carousel";
+@import "../../../../../../../../bootstrap44/spinners";
+@import "../../../../../../../../bootstrap44/utilities";
+//@import "../../../../../../../../bootstrap44/print";
+
+$spaceamounts: (0, 1, 2, 3, 5, 7,9, 10, 15, 20, 25, 30, 35, 40, 60); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space}p {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$space}p {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+.p-0p {
+  padding: 0px !important;
+}
+.p-1p {
+  padding: 1px !important;
+}
+.p-2p {
+  padding: 2px !important;
+}
+.p-4p{
+  padding: 4px;
+}
+.p-5p{
+  padding: 5px;
+}
+.p-7p {
+  padding: 7px;
+}
+.p-10p {
+  padding: 10px;
+}
+.p-15p {
+  padding: 15px;
+}
+.p-20p {
+  padding: 20px;
+}
+.m-0p {
+  margin: 0px;
+}
+.m-1p{
+  margin: 1px;
+}
+.m-2p{
+  margin: 2px;
+}
+.m-3p{
+  margin: 3px;
+}
+.m-5p{
+  margin: 5px;
+}
+.m-7p {
+  margin: 7px;
+}
+.m-10p {
+  margin: 10px;
+}
+.text-black{
+  color: #000000;
+}
+.text-30{
+  font-size: 30px;
+}
+.text-25{
+  font-size: 25px;
+}
+.text-21{
+  font-size: 21px;
+}
+.text-17{
+  font-size: 17px;
+}
+.text-18{
+  font-size: 18px;
+}
+.text-15{
+  font-size: 15px;
+}
+.text-14{
+  font-size: 14px;
+}
+.text-16{
+  font-size: 16px;
+}
+.text-13{
+  font-size: 13px;
+}
+.text-12{
+  font-size: 12px;
+}
+.text-7{
+  font-size: 7px !important;
+}
+.text-30{
+  font-size: 30px;
+}
+.rounded-10{
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.overflow-hidden{overflow: hidden}
+.text-shadow{
+  text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.55);
+}
+.bottom-0{
+  bottom:0;
+}
+.top-0{
+  top:0;
+}
+.left-0{
+  left:0;
+}
+.right-0{
+  right:0;
+}

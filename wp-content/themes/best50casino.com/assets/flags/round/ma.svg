@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Morocco" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+<g>
+	<defs>
+		<circle id="SVGID_1_" cx="256" cy="256" r="254"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_2_)">
+		<g>
+			<g>
+				<rect x="-2.667" y="-5" fill="#C7463D" width="517.334" height="526.324"/>
+				<path id="star" fill="#406A5F" d="M255.944,88.817l-41.105,126.925L81.5,215.857l107.805,78.437l-41.106,127.04
+					c27.779-20.378,78.09-56.896,107.802-78.437l107.918,78.374l-41.223-126.924l107.803-78.548h-133.22L255.944,88.817z
+					 M255.944,175.724l13.108,40.019l-26.104,0.057L255.944,175.724z M206.078,242.595l-8.015,24.903l-34.064-24.79L206.078,242.595
+					z M234.246,242.595h43.509l13.452,41.446L256,309.692l-35.21-25.651L234.246,242.595z M305.923,242.595h42.021l-33.947,24.903
+					L305.923,242.595z M212.091,310.95l21.181,15.285l-34.063,24.789L212.091,310.95z M300.028,310.95l12.88,40.074l-34.009-24.733
+					v-0.056L300.028,310.95z"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>
