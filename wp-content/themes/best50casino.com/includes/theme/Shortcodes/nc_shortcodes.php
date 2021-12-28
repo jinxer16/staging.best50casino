@@ -446,7 +446,7 @@ function table_cta_shortcode($atts)
                              }
                              elseif ($atts['cat_in'] === '67'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta_bc_code', true);
-                                 if (!empty($meta)) {
+                                 if (!empty($meta) && $meta !== '-') {
                                      $catfilter = true;
                                  }
                              }
