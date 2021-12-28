@@ -409,7 +409,7 @@ function table_cta_shortcode($atts)
                                 '53' => 'casino_custom_meta__is_mobile_bonus',
                             );
                         foreach ($filters as $k => $v) {
-                            echo get_post_meta($casinoID,$countryISO.$v,true);
+                            echo get_post_meta($casinoID,$countryISO.'casino_custom_meta__is_no_dep',true);
                         }
 
 
