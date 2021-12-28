@@ -399,15 +399,12 @@ function table_cta_shortcode($atts)
                         $catfilter = false;
                         $bonusISO = get_bonus_iso($casinoID);
 
-
-                        echo $bonusISO;
-                        echo $countryISO;
                         if ($atts['cat_in']) {
                             $extraFilter = true;
                              if ($atts['cat_in'] === '48'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_no_dep', true);
                                  echo $meta;
-                                 if (isset($meta) && $meta === 'on') {
+                                 if (isset($meta) && $meta === '1') {
                                      echo $meta;
                                      $catfilter = true;
                                  }
@@ -441,7 +438,7 @@ function table_cta_shortcode($atts)
                                      $catfilter = true;
                                  }
                              }
-                             elseif ($atts['cat_in'] === '54'){
+                             elseif ($atts['cat_in'] === '1'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_vip', true);
                                  if (isset($meta)) {
                                      $catfilter = true;
