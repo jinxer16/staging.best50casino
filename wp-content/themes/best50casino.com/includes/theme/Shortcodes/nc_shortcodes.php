@@ -401,7 +401,7 @@ function table_cta_shortcode($atts)
 
                         if ($atts['cat_in']) {
                             $extraFilter = true;
-                             if ($atts['cat_in'] === 48){
+                             if ($atts['cat_in'] === '48'){
                                  echo 'aaa';
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_no_dep', true);
                                  if (isset($meta)) {
