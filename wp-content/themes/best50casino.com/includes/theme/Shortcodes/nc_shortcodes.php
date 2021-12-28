@@ -412,8 +412,11 @@ function table_cta_shortcode($atts)
                             );
 
                         if ($atts['cat_in']) {
+
                             $extraFilter = true;
                             foreach ($filters as $k => $v) {
+                                
+                                echo $atts['cat_in'] . '<br/>' . $k;
                                     if ($k === '67' && $k === $atts['cat_in']){
                                         $meta = get_post_meta($casinoID, $bonusISO.$v, true);
                                         if (empty($meta)) {
