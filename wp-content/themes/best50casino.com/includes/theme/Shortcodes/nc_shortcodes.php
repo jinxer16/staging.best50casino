@@ -397,6 +397,8 @@ function table_cta_shortcode($atts)
                         $TCS = !get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) ? $advancedTCs : '<a href="' . get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) . '" target="_blank" rel="nofollow" class="text-9 text-grey text-italic text-center">' . $advancedTCs . '</a>';
                         $extraFilter = false;
                         $catfilter = false;
+
+                        $bonusISO = get_bonus_iso($casinoID);
                         $filters =
                             array(
                                 '67' => 'casino_custom_meta_bc_code',
@@ -410,8 +412,8 @@ function table_cta_shortcode($atts)
                             );
                         foreach ($filters as $k => $v) {
 
-                            echo $countryISO.$v;
-                            echo get_post_meta($casinoID,$countryISO.'casino_custom_meta_is_no_dep',true);
+                            echo $bonusISO.$v;
+                            echo get_post_meta($casinoID,$bonusISO.'casino_custom_meta_is_no_dep',true);
                         }
 
 
@@ -419,13 +421,13 @@ function table_cta_shortcode($atts)
                             $extraFilter = true;
                             foreach ($filters as $k => $v) {
                                     if ($k === '67' && $k === $atts['cat_in']){
-                                        $meta = get_post_meta($casinoID, $countryISO.$v, true);
+                                        $meta = get_post_meta($casinoID, $bonusISO.$v, true);
                                         if (!empty($meta)) {
                                             $catfilter = true;
                                         }
                                     }else{
                                         if ($k === $atts['cat_in']) {
-                                            $meta = get_post_meta($casinoID, $countryISO . $v, true);
+                                            $meta = get_post_meta($casinoID, $bonusISO . $v, true);
                                             if (!isset($meta)) {
                                                 $catfilter = true;
                                             }
