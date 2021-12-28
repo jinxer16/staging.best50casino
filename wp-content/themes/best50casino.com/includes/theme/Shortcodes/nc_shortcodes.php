@@ -416,7 +416,7 @@ function table_cta_shortcode($atts)
                             foreach ($filters as $k => $v) {
                                     if ($k === '67' && $k === $atts['cat_in']){
                                         $meta = get_post_meta($casinoID, $bonusISO.$v, true);
-                                        if (!empty($meta)) {
+                                        if (empty($meta)) {
                                             $catfilter = true;
                                         }
                                     }else{
@@ -424,7 +424,7 @@ function table_cta_shortcode($atts)
                                             echo $bonusISO.$v;
                                             echo get_post_meta($casinoID,$bonusISO.'casino_custom_meta_is_no_dep',true);
                                             $meta = get_post_meta($casinoID, $bonusISO . $v, true);
-                                            if (!isset($meta)) {
+                                            if (isset($meta)) {
                                                 $catfilter = true;
                                             }
                                         }
