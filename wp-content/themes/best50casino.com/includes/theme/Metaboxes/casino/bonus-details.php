@@ -66,21 +66,21 @@ foreach (get_all_posts('kss_casino') as $postID) {
                     for <?= ucwords($name) ?></a><?= $class ?></h4>
             <div class="panel-collapse collapse" id="details-<?= $iso ?>">
                 <div class="d-flex flex-wrap">
-                    <div class="col-4 p-3 d-flex align-items-center">
+                    <div class="col-2 p-3 d-flex align-items-center">
                         <label class="mb-0">Exclusive</label>
                         <?php $mb->the_field($iso . $prefix . 'exclusive'); ?>
                         <input type="checkbox" name="<?php $mb->the_name(); ?>"
                                value="on"<?php $mb->the_checkbox_state('on'); ?> class="ml-1"/>
                         <!--            --><?php //wp_editor(html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8'), $prefix.'sl_ga', array('wpautop' => false, 'textarea_name' => $mb->get_the_name())); ?>
                     </div>
-                    <div class="col-4 p-3 d-flex align-items-center">
+                    <div class="col-2 p-3 d-flex align-items-center">
                         <label class="mb-0">No Bonus</label>
                         <?php $mb->the_field($iso . $prefix . 'no_bonus'); ?>
                         <input type="checkbox" name="<?php $mb->the_name(); ?>" id="no_bonus" onclick="noBonus(this,'nobonus','<?echo $iso;?>')"
                                value="1"<?php $mb->the_checkbox_state('1'); ?> class="ml-1"/>
                         <!--            --><?php //wp_editor(html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8'), $prefix.'sl_ga', array('wpautop' => false, 'textarea_name' => $mb->get_the_name())); ?>
                     </div>
-                    <div class="col-4 p-3 d-flex align-items-center">
+                    <div class="col-2 p-3 d-flex align-items-center">
                         <label class="mb-0">No Bonus Code</label>
                         <?php $mb->the_field($iso . $prefix . 'no_bonus_code'); ?>
                         <input type="checkbox" name="<?php $mb->the_name(); ?>" id="no_bonus_code" onclick="noPromoCode(this,'nopromocode','<?echo $iso;?>')"
@@ -109,14 +109,14 @@ foreach (get_all_posts('kss_casino') as $postID) {
                         <input type="checkbox" name="<?php $mb->the_name(); ?>" value="on"<?php $mb->the_checkbox_state('on'); ?> class="ml-1"/>
                     </div>
 
-                    <div class="col-4 p-3 d-flex align-items-center">
+                    <div class="col-2 p-3 d-flex align-items-center">
                         <label class="mb-0">Free Spins</label>
                         <?php $mb->the_field($iso . $prefix . '_is_free_spins'); ?>
                         <input type="checkbox" name="<?php $mb->the_name(); ?>"
                                value="on"<?php $mb->the_checkbox_state('on'); ?> class="ml-1"/>
                         <!--            --><?php //wp_editor(html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8'), $prefix.'sl_ga', array('wpautop' => false, 'textarea_name' => $mb->get_the_name())); ?>
                     </div>
-                    <div class="col-4 p-3 d-flex align-items-center">
+                    <div class="col-2 p-3 d-flex align-items-center">
                         <label class="mb-0">No Deposit</label>
                         <?php $mb->the_field($iso . $prefix . '_is_no_dep'); ?>
                         <input type="checkbox" name="<?php $mb->the_name(); ?>"
