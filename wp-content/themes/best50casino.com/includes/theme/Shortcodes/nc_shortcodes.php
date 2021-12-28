@@ -403,8 +403,8 @@ function table_cta_shortcode($atts)
                             $extraFilter = true;
                              if ($atts['cat_in'] === '48'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_no_dep', true);
-                                 if (isset($meta)) {
-                                     echo 'aaf';
+                                 if (isset($meta) && $meta === 'on') {
+                                     echo $meta;
                                      $catfilter = true;
                                  }
                              }elseif ($atts['cat_in'] === '47'){
