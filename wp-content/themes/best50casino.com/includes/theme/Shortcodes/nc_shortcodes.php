@@ -410,43 +410,43 @@ function table_cta_shortcode($atts)
                                  }
                              }elseif ($atts['cat_in'] === '47'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_welcome_bonus', true);
-                                 if (isset($meta)) {
+                                 if (isset($meta) && $meta === 'on') {
                                      $catfilter = true;
                                  }
                              }
                              elseif ($atts['cat_in'] === '49'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_reload_bonus', true);
-                                 if (isset($meta)) {
+                                 if (isset($meta) && $meta === 'on') {
                                      $catfilter = true;
                                  }
                              }
                              elseif ($atts['cat_in'] === '56'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_free_spins', true);
-                                 if (isset($meta)) {
+                                 if (isset($meta) && $meta === 'on') {
                                      $catfilter = true;
                                  }
                              }
                              elseif ($atts['cat_in'] === '50'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_live_bonus', true);
-                                 if (isset($meta)) {
+                                 if (isset($meta) && $meta === 'on') {
                                      $catfilter = true;
                                  }
                              }
                              elseif ($atts['cat_in'] === '53'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_mobile_bonus', true);
-                                 if (isset($meta)) {
+                                 if (isset($meta) && $meta === 'on') {
                                      $catfilter = true;
                                  }
                              }
-                             elseif ($atts['cat_in'] === '1'){
+                             elseif ($atts['cat_in'] === '54'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_vip', true);
-                                 if (isset($meta)) {
+                                 if (isset($meta) && $meta === 'on') {
                                      $catfilter = true;
                                  }
                              }
                              elseif ($atts['cat_in'] === '67'){
                                  $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta_bc_code', true);
-                                 if (empty($meta)) {
+                                 if (!empty($meta)) {
                                      $catfilter = true;
                                  }
                              }
