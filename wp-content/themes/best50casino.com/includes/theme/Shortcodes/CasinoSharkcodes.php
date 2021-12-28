@@ -596,8 +596,8 @@ class CasinoSharkcodes
         if (isset($atts['cat_in_filter']) && $atts['cat_in_filter'] === 'exclusive') {
             $filteredGeoBookies = $this->exclusive_bonus_filters( $filteredGeoBookies,$this->geoCountry);
         }
-        if (isset($atts['cat_in_filter']) && $atts['cat_in_filter'] !== 'exclusive') {
-            $filterValue  = strpos($this->args['cat_in_filter'], ',') !== false ? explode(",",$atts['cat_in_filter'] ) : [$atts['cat_in_filter']];
+        if (isset($atts['cat_in'])) {
+            $filterValue  = strpos($this->args['cat_in'], ',') !== false ? explode(",",$atts['cat_in'] ) : [$atts['cat_in']];
             $filteredGeoBookies = $this->bonus_filters( $filteredGeoBookies,$filterValue,$this->geoCountry);
         }
         $filterCasinos = $filteredGeoBookies;
