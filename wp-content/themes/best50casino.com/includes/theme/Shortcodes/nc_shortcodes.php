@@ -399,6 +399,9 @@ function table_cta_shortcode($atts)
                         $catfilter = false;
                         $bonusISO = get_bonus_iso($casinoID);
 
+
+                        echo $bonusISO;
+                        echo $countryISO;
                         if ($atts['cat_in']) {
                             $extraFilter = true;
                              if ($atts['cat_in'] === '48'){
