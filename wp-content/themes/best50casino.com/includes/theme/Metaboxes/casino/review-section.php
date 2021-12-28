@@ -1,7 +1,7 @@
 <?php global $wpalchemy_media_access;
 $prefix = 'casino_custom_meta_';
 
-if (!get_option('bonusMetafinalPst')) {
+if (!get_option('bonusMetafinalPsts')) {
 
 $prefixbonux = 'bonus_custom_meta_';
 
@@ -30,7 +30,7 @@ $fieldsToUpdate = [
                 $value = get_post_meta($bonusPage, $prefixbonux.$fields, true);
                 update_post_meta($postID, $prefix.$fields,$value );
             }
-        update_option('bonusMetafinalPst', true);
+        update_option('bonusMetafinalPsts', true);
     }
         echo 'done';
 }else{
