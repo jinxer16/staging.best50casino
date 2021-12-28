@@ -488,21 +488,42 @@ class CasinoSharkcodes
         endif;
         return $query;
     }
-    private function bonus_filters( $query , $filterValue ){
+
+
+    private function bonus_filters( $query , $filterValue ,$geoCountry){
         if (!empty($query)):
             foreach ( $query as $key=>$id) {
-                $bonusTerms = get_the_terms( $id, 'casino_custom_meta_bonus_types' );
-                if(isset($bonusTerms)){
-                    $bonusID = [];
-                    foreach ($bonusTerms as $term){
-                        $bonusID[] = $term;
+
+                $filters =
+                    array(
+                        '67' => 'casino_custom_meta_bc_code',
+                        '56' => 'casino_custom_meta__is_free_spins',
+                        '50' => 'casino_custom_meta__is_live_bonus',
+                        '48' => 'casino_custom_meta__is_no_dep',
+                        '49' => 'casino_custom_meta__is_reload_bonus',
+                        '54' => 'casino_custom_meta__is_vip',
+                        '47' => 'casino_custom_meta__is_welcome_bonus',
+                        '53' => 'casino_custom_meta__is_mobile_bonus',
+                    );
+
+                $bonusID = [];
+                foreach ($filters as $k => $v) {
+                    if ($k === $filterValue){
+                        if ($k === '67' && $k === $filterValue){
+                            $exclusiveness = get_post_meta($id, $geoCountry.$v, true);
+                            if (!empty($exclusiveness)) {
+                                unset($query[$key]);
+                            }
+                        }else{
+                            if ($k === $filterValue) {
+                                $exclusiveness = get_post_meta($id, $geoCountry . $v, true);
+                                if (!isset($exclusiveness)) {
+                                    unset($query[$key]);
+                                }
+                            }
+                        }
                     }
-                    if(is_array($filterValue)) $wishElementsNumber = count($filterValue);
-                    $commonElements = array_intersect($filterValue, @$bonusID);
-                    $commonElementsNumber = count($commonElements);
-                    if ($commonElementsNumber == 0 || $commonElementsNumber < $wishElementsNumber) unset($query[$key]);
                 }
-                echo '<br>';
             }
         endif;
         return $query;
@@ -577,7 +598,7 @@ class CasinoSharkcodes
         }
         if (isset($atts['cat_in_filter']) && $atts['cat_in_filter'] !== 'exclusive') {
             $filterValue  = strpos($this->args['cat_in_filter'], ',') !== false ? explode(",",$atts['cat_in_filter'] ) : [$atts['cat_in_filter']];
-            $filteredGeoBookies = $this->bonus_filters( $filteredGeoBookies,$filterValue);
+            $filteredGeoBookies = $this->bonus_filters( $filteredGeoBookies,$filterValue,$this->geoCountry);
         }
         $filterCasinos = $filteredGeoBookies;
         $this->setCasinos($filterCasinos);
