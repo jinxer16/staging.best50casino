@@ -40,7 +40,7 @@ $fieldsToUpdate = [
 $activeCountries = WordPressSettings::getCountryEnabledSettings();
 $activeCountriesWithNames = WordPressSettings::getCountryEnabledSettingsWithNames();
 
-if (!get_option('slugupdate')) {
+if (!get_option('slugupdates')) {
     foreach (get_all_posts('kss_casino') as $postID) {
         $bonusPage = get_post_meta($postID,'casino_custom_meta_bonus_page',true);
         $slug = get_post_field( 'post_name', $bonusPage );
@@ -52,7 +52,7 @@ if (!get_option('slugupdate')) {
         );
         wp_update_post($update_args);
     }
-    update_option('slugupdate', true);
+    update_option('slugupdates', true);
 }
 ?>
 <div class="">
