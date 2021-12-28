@@ -399,16 +399,10 @@ function table_cta_shortcode($atts)
                         $catfilter = false;
                         if ($atts['cat_in']) {
                             $extraFilter = true;
-                            $bonustypes = $geoBonusArgs['bonusText']['left-billboard'];
-                            if ($bonustypes) {
-                                foreach ($bonustypes as $term) {
-                                    if ($atts['cat_in'] === $term && current_user_can('administrator')) {
+                                    if ($atts['cat_in']) {
                                         $catfilter = true;
                                     }
-                                }
                             }
-                        }
-
                         $wagering = '';
                         $turnoverD = $geoBonusArgs['bonusText']['right-turnover-d'];
                         $turnoverB = $geoBonusArgs['bonusText']['right-turnover-b'];
