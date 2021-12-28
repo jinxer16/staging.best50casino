@@ -397,12 +397,42 @@ function table_cta_shortcode($atts)
                         $TCS = !get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) ? $advancedTCs : '<a href="' . get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) . '" target="_blank" rel="nofollow" class="text-9 text-grey text-italic text-center">' . $advancedTCs . '</a>';
                         $extraFilter = false;
                         $catfilter = false;
+                        $filters =
+                            array(
+                                '67' => 'casino_custom_meta_bc_code',
+                                '56' => 'casino_custom_meta__is_free_spins',
+                                '50' => 'casino_custom_meta__is_live_bonus',
+                                '48' => 'casino_custom_meta__is_no_dep',
+                                '49' => 'casino_custom_meta__is_reload_bonus',
+                                '54' => 'casino_custom_meta__is_vip',
+                                '47' => 'casino_custom_meta__is_welcome_bonus',
+                                '53' => 'casino_custom_meta__is_mobile_bonus',
+                            );
+                        foreach ($filters as $k => $v) {
+                            echo get_post_meta($casinoID,$countryISO.$v,true);
+                        }
+
+
                         if ($atts['cat_in']) {
                             $extraFilter = true;
-                                    if ($atts['cat_in']) {
-                                        $catfilter = true;
+                            foreach ($filters as $k => $v) {
+                                    if ($k === '67' && $k === $atts['cat_in']){
+                                        $meta = get_post_meta($casinoID, $countryISO.$v, true);
+                                        if (!empty($meta)) {
+                                            $catfilter = true;
+                                        }
+                                    }else{
+                                        if ($k === $atts['cat_in']) {
+                                            $meta = get_post_meta($casinoID, $countryISO . $v, true);
+                                            if (!isset($meta)) {
+                                                $catfilter = true;
+                                            }
+                                        }
                                     }
-                            }
+                                }
+                        }
+
+
                         $wagering = '';
                         $turnoverD = $geoBonusArgs['bonusText']['right-turnover-d'];
                         $turnoverB = $geoBonusArgs['bonusText']['right-turnover-b'];
