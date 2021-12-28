@@ -397,42 +397,57 @@ function table_cta_shortcode($atts)
                         $TCS = !get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) ? $advancedTCs : '<a href="' . get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) . '" target="_blank" rel="nofollow" class="text-9 text-grey text-italic text-center">' . $advancedTCs . '</a>';
                         $extraFilter = false;
                         $catfilter = false;
-
                         $bonusISO = get_bonus_iso($casinoID);
-                        $filters =
-                            array(
-                                '67' => 'casino_custom_meta_bc_code',
-                                '56' => 'casino_custom_meta__is_free_spins',
-                                '50' => 'casino_custom_meta__is_live_bonus',
-                                '48' => 'casino_custom_meta__is_no_dep',
-                                '49' => 'casino_custom_meta__is_reload_bonus',
-                                '54' => 'casino_custom_meta__is_vip',
-                                '47' => 'casino_custom_meta__is_welcome_bonus',
-                                '53' => 'casino_custom_meta__is_mobile_bonus',
-                            );
 
                         if ($atts['cat_in']) {
-
                             $extraFilter = true;
-                            foreach ($filters as $k => $v) {
-                                
-                                echo $atts['cat_in'] . '<br/>' . $k;
-                                    if ($k === '67' && $k === $atts['cat_in']){
-                                        $meta = get_post_meta($casinoID, $bonusISO.$v, true);
-                                        if (empty($meta)) {
-                                            $catfilter = true;
-                                        }
-                                    }else{
-                                        if ($k === $atts['cat_in']) {
-                                            echo $bonusISO.$v;
-                                            echo get_post_meta($casinoID,$bonusISO.'casino_custom_meta_is_no_dep',true);
-                                            $meta = get_post_meta($casinoID, $bonusISO . $v, true);
-                                            if (isset($meta)) {
-                                                $catfilter = true;
-                                            }
-                                        }
-                                    }
-                                }
+                             if ($atts['cat_in'] === '48'){
+                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_no_dep', true);
+                                 if (isset($meta)) {
+                                     $catfilter = true;
+                                 }
+                             }elseif ($atts['cat_in'] === '47'){
+                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_welcome_bonus', true);
+                                 if (isset($meta)) {
+                                     $catfilter = true;
+                                 }
+                             }
+                             elseif ($atts['cat_in'] === '49'){
+                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_reload_bonus', true);
+                                 if (isset($meta)) {
+                                     $catfilter = true;
+                                 }
+                             }
+                             elseif ($atts['cat_in'] === '56'){
+                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_free_spins', true);
+                                 if (isset($meta)) {
+                                     $catfilter = true;
+                                 }
+                             }
+                             elseif ($atts['cat_in'] === '50'){
+                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_live_bonus', true);
+                                 if (isset($meta)) {
+                                     $catfilter = true;
+                                 }
+                             }
+                             elseif ($atts['cat_in'] === '53'){
+                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_mobile_bonus', true);
+                                 if (isset($meta)) {
+                                     $catfilter = true;
+                                 }
+                             }
+                             elseif ($atts['cat_in'] === '54'){
+                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_vip', true);
+                                 if (isset($meta)) {
+                                     $catfilter = true;
+                                 }
+                             }
+                             elseif ($atts['cat_in'] === '67'){
+                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta_bc_code', true);
+                                 if (empty($meta)) {
+                                     $catfilter = true;
+                                 }
+                             }
                         }
 
 
