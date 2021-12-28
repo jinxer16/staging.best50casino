@@ -17,7 +17,7 @@ $fieldsToRead ='';
 foreach ($activeCountriesWithNames as $iso => $name) {
     if(isset($casinoRestrictions[$iso]))continue;
     $fieldsToRead .= $iso.$prefix.'exclusive'.",".$iso.$prefix.'no_bonus'.",".$iso.$prefix.'no_bonus_code'.",".$iso.$prefix.'_is_free_spins'.",".$iso.$prefix.'_is_no_dep'.",".$iso.$prefix.'_is_vip'.",".
-        $iso.$prefix.'bonus_type'.",".$iso.$prefix.'spins_type'.",".$iso.$prefix.'cashback_type'.",".$iso.$prefix.'min_dep'.",".
+        $iso.$prefix.'bonus_type'.",".$iso.$prefix.'spins_type'.",".$iso.$prefix.'cashback_type'.",".$iso.$prefix.'min_dep'.",".$iso.$prefix.'sp_terms'.",".$iso.$prefix.'no_depo'.",".
         $iso.$prefix.'bc_code'.",".$iso.$prefix.'cta_for_top'.",".$iso.$prefix.'cta_for_top_2'.",".$iso.$prefix.'bc_perc'.",".$iso.$prefix .'wag_b'.",".$iso.$prefix.'wag_d'.",".$iso.$prefix.'wag_s'.",".$iso.$prefix.'bonus_types';
 }
 
@@ -25,8 +25,8 @@ $pieces = explode(",", $fieldsToRead);
 
 array_push($pieces, $prefix."bonus_contries_filled");
 //$doupdate = [$fieldsToRead];
-$fieldsToUpdate = ['exclusive','no_bonus','no_bonus_code','_is_free_spins','_is_no_dep','_is_vip','promo_code', 'bonus_type','spins_type','cashback_type','min_dep', 'bc_code','cta_for_top','cta_for_top_2','bc_perc','wag_b','wag_d', 'wag_s','bonus_contries_filled'];
-//if (!get_option('bonusMeAddLast')) {
+$fieldsToUpdate = ['exclusive','no_bonus','no_bonus_code','_is_free_spins','_is_no_dep','_is_vip','promo_code', 'bonus_type','spins_type','cashback_type','min_dep','no_depo','sp_terms','bc_code','cta_for_top','cta_for_top_2','bc_perc','wag_b','wag_d', 'wag_s','bonus_contries_filled'];
+if (!get_option('bonusMeAddLasts')) {
 $prefixbonus = 'bs_custom_meta_';
 foreach (get_all_posts('kss_casino') as $postID) {
 
@@ -51,8 +51,8 @@ foreach (get_all_posts('kss_casino') as $postID) {
         }
     }
 }
-//    update_option('bonusMeAddLast', true);
-//}
+    update_option('bonusMeAddLasts', true);
+}
 ?>
 <div class="d-flex flex-wrap">
     <?php foreach ($activeCountriesWithNames as $iso => $name) {
