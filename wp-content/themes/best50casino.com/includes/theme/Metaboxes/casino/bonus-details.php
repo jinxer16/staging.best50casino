@@ -103,27 +103,27 @@ $casinoPayments = is_array($casinoPayments) ? array_flip($casinoPayments) : [];
                         <?php $mb->the_field($iso . $prefix . '_is_reload_bonus'); ?>
                         <input type="checkbox" name="<?php $mb->the_name(); ?>" value="on"<?php $mb->the_checkbox_state('on'); ?> class="ml-1"/>
                     </div>
-                    <div class="col-2 p-3 d-flex align-items-center">
+                    <div class="col-3 p-3 d-flex align-items-center">
                         <label class="mb-0">Live Casino Bonus</label>
                         <?php $mb->the_field($iso . $prefix . '_is_live_bonus'); ?>
                         <input type="checkbox" name="<?php $mb->the_name(); ?>" value="on"<?php $mb->the_checkbox_state('on'); ?> class="ml-1"/>
                     </div>
 
-                    <div class="col-2 p-3 d-flex align-items-center">
+                    <div class="col-3 p-3 d-flex align-items-center">
                         <label class="mb-0">Free Spins</label>
                         <?php $mb->the_field($iso . $prefix . '_is_free_spins'); ?>
                         <input type="checkbox" name="<?php $mb->the_name(); ?>"
                                value="on"<?php $mb->the_checkbox_state('on'); ?> class="ml-1"/>
                         <!--            --><?php //wp_editor(html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8'), $prefix.'sl_ga', array('wpautop' => false, 'textarea_name' => $mb->get_the_name())); ?>
                     </div>
-                    <div class="col-2 p-3 d-flex align-items-center">
+                    <div class="col-3 p-3 d-flex align-items-center">
                         <label class="mb-0">No Deposit</label>
                         <?php $mb->the_field($iso . $prefix . '_is_no_dep'); ?>
                         <input type="checkbox" name="<?php $mb->the_name(); ?>"
                                value="1"<?php $mb->the_checkbox_state('1'); ?> class="ml-1"/>
                         <!--            --><?php //wp_editor(html_entity_decode($mb->get_the_value(), ENT_QUOTES, 'UTF-8'), $prefix.'sl_ga', array('wpautop' => false, 'textarea_name' => $mb->get_the_name())); ?>
                     </div>
-                    <div class="col-4 p-3 d-flex align-items-center">
+                    <div class="col-3 p-3 d-flex align-items-center">
                         <label class="mb-0">VIP</label>
                         <?php $mb->the_field($iso . $prefix . '_is_vip'); ?>
                         <input type="checkbox" name="<?php $mb->the_name(); ?>"
