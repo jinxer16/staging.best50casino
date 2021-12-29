@@ -82,7 +82,7 @@ wp_reset_postdata();
     <div class="w-70 w-sm-100 p-5p">
         <h2 id="aksiologisi" class="review-box-title widget2-heading bg-dark text-left text-white bg-primary p-5p text-15 mb-0"><?= get_post_meta($post->ID,"casino_custom_meta_h1",true); ?></h2>
         <!-- get_the_content(null, null, $post->ID) //-->
-        <div class="review-box-body p-5p border w-100 shadow" style="height: 93%;" id="intro"><?php echo apply_filters('the_content', get_the_content($post->ID)); ?>
+        <div class="review-box-body p-5p border w-100 shadow" style="height: 90%;" id="intro"><?php echo apply_filters('the_content', get_the_content($post->ID)); ?>
 
         </div>
     </div>
