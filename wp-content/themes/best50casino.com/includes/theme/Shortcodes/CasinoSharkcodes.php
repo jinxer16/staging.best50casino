@@ -494,7 +494,6 @@ class CasinoSharkcodes
             foreach ( $query as $key=>$id) {
                 if ($filterValue === '48'){
                     $meta = get_post_meta($id,$geoCountry.'casino_custom_meta__is_no_dep', true);
-                    echo $meta;
                     if (!isset($meta) || $meta !== '1') {
                         unset($query[$key]);
                     }
@@ -641,8 +640,8 @@ class CasinoSharkcodes
             $filteredGeoBookies = $this->bonus_filters( $filteredGeoBookies,$filterValue);
         }
         if (isset($atts['cat_in'])) {
-            $filterValue  = strpos($this->args['cat_in'], ',') !== false ? explode(",",$atts['cat_in'] ) : [$atts['cat_in']];
-            $filteredGeoBookies = $this->bonus_filters_casino( $filteredGeoBookies,$this->geoCountry,$filterValue);
+//            $filterValue  = strpos($this->args['cat_in'], ',') !== false ? explode(",",$atts['cat_in'] ) : [$atts['cat_in']];
+            $filteredGeoBookies = $this->bonus_filters_casino( $filteredGeoBookies,$this->geoCountry,$this->args['cat_in']);
         }
         $filterCasinos = $filteredGeoBookies;
         $this->setCasinos($filterCasinos);
