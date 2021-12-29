@@ -521,7 +521,7 @@ wp_reset_postdata();
                 <?php if (is_array($depArrayRest)){
 
                     ?>
-                    <a class="btn bumper btn btn bg-primary text-17 w-sm-100 d-block table-depo-btn  text-decoration-none text-white w-50 mx-auto p-15p btn_large bumper font-weight-bold" style="border-radius: 0!important;" href="#hidden-payments" data-toggle="collapse" rel="nofollow" >
+                    <a class="btn bumper btn btn bg-primary text-17 w-sm-100 d-block table-depo-btn text-decoration-none text-white w-50 mx-auto p-15p p-sm-5p text-sm-13 btn_large bumper font-weight-bold" style="border-radius: 0!important;" href="#hidden-payments" data-toggle="collapse" rel="nofollow" >
                         <i class="fas fa-sync-alt"></i>  View More Deposit Methods</i></a>
                     <?php
                 }
@@ -645,7 +645,7 @@ wp_reset_postdata();
             <div class="bg-gray-light p-10p">
                 <?php if (is_array($depArrayRest)){
                     ?>
-                    <a class="btn bumper btn btn bg-primary text-decoration-none text-white text-17 w-sm-100 d-block table-with-btn w-50 mx-auto viewpaym p-20p btn_large  bumper font-weight-bold" style="border-radius: 0!important;"  href="#hidden-payments-with" data-toggle="collapse" rel="nofollow" >
+                    <a class="btn bumper btn btn bg-primary text-decoration-none text-white text-17 text-sm-13 p-sm-5p w-sm-100 d-block table-with-btn w-50 mx-auto viewpaym p-20p btn_large  bumper font-weight-bold" style="border-radius: 0!important;"  href="#hidden-payments-with" data-toggle="collapse" rel="nofollow" >
                         <i class="fas fa-sync-alt"></i> View More Withdrawals Methods</i></a>
                     <?php
                 }
