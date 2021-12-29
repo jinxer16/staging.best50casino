@@ -493,7 +493,8 @@ class CasinoSharkcodes
         if (!empty($query)):
             foreach ( $query as $key=>$id) {
                 if ($filterValue === '48'){
-                    $meta = get_post_meta($id, $geoCountry.'casino_custom_meta__is_no_dep', true);
+                    $meta = get_post_meta($id,$geoCountry.'casino_custom_meta__is_no_dep', true);
+                    echo $meta;
                     if (!isset($meta) || $meta !== '1') {
                         unset($query[$key]);
                     }
