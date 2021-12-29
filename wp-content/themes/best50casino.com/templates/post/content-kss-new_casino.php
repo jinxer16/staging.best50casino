@@ -982,23 +982,21 @@ wp_reset_postdata();
             $cas = explode(",", $getss);
             $i=0;
             foreach ($cas as $casinoID){
-                $bonuspagebest = get_post_meta($casinoID, 'casino_custom_meta_bonus_page', true);
-                $bonusNamebest = get_post_meta($bonuspagebest, 'casino_custom__bonus_offer', true);
-                $bonusISObest = get_bonus_iso($bonuspagebest);
-                $ctaLinkbest = get_post_meta($casinoID, 'casino_custom_meta_affiliate_link_review', true);
+                $bonusISObest = get_bonus_iso($casinoID);
+                $ctaLinkbest = get_post_meta($casinoID, 'casino_custom_meta_affiliate_link', true);
                 $exclusiveMobileString = '<div class="ribbon best-casino 5"><span class="ribbonclass-exclusive"><i class="fa fa-star" aria-hidden="true" style="color:#fff;font-size:11px;"></i></span></div>';
-                $isBonusExclusiveMobile = get_post_meta($bonusNamebest, $bonusISObest . "bs_custom_meta_exclusive", true) ? $exclusiveMobileString : '';
+                $isBonusExclusiveMobile = get_post_meta($casinoID, $bonusISObest . "casino_custom_meta_exclusive", true) ? $exclusiveMobileString : '';
                 ?>
                 <div class="p-10p d-flex flex-wrap " style="border: 1px solid #bfbfbfe0; background: #f1f1f1;">
                     <div class="w-30 position-relative overflow-hidden">
                         <a class="" href="<?= get_the_permalink($casinoID);?>">
-                            <img loading="lazy" src="<?=get_the_post_thumbnail_url($casinoID);?>" class="img-fluid rounded" alt="<?= get_the_title($casinoID) ?>" style="height: 60px">
+                            <img loading="lazy" src="<?=get_the_post_thumbnail_url($casinoID);?>" class="img-fluid rounded" alt="<?php echo get_the_title($casinoID);?>" style="height: 60px">
                         <?=$isBonusExclusiveMobile;?>
                         </a>
                     </div>
                     <div class="w-50 position-relative d-flex flex-column text-center text-14 align-self-center">
-                        <span class="font-weight-bold"><?=get_post_meta($bonusNamebest, $bonusISObest."bs_custom_meta_cta_for_top", true)?></span>
-                        <span class=""><?=get_post_meta($bonusNamebest, $bonusISObest."bs_custom_meta_cta_for_top_2", true)?></span>
+                        <span class="font-weight-bold"><?php echo get_post_meta($casinoID, $bonusISObest."casino_custom_meta_cta_for_top", true);?></span>
+                        <span class=""><?php echo get_post_meta($casinoID, $bonusISObest."casino_custom_meta_cta_for_top_2", true);?></span>
 
                     </div>
                     <div class="w-20 align-self-center">
