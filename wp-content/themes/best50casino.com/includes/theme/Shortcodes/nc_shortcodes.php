@@ -195,9 +195,8 @@ function table_cta_shortcode($atts)
         $ret .= '		</div>';
         $ret .= '</div>';
         $ret .= '</div>';
-        }
 
-    elseif ('default' === $atts['layout']) { //////////////////////////////////////////////////////////////// DEFAULT ////////////////////////////////////////////////////////
+        }elseif ('default' === $atts['layout']) { //////////////////////////////////////////////////////////////// DEFAULT ////////////////////////////////////////////////////////
         //$ret = print_r(get_casino_order());
         $ret .= '<div class="inner_row more_games '.$unique.' mb-15p' . $atts['layout'] . '">';
         $ret .= '	<div class="">';
@@ -260,17 +259,6 @@ function table_cta_shortcode($atts)
                         $advancedTCs = $geoBonusArgs['bonusText']['terms'] ?: '';
                         $TCS = !get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) ? $advancedTCs : '<a href="' . get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) . '" target="_blank" rel="nofollow" class="text-9 text-grey text-italic text-center">' . $advancedTCs . '</a>';
 
-                        if ($atts['cat_in']) {
-                            $extraFilter = true;
-                            $bonustypes = $geoBonusArgs['bonusText']['left-billboard'];
-                            if ($bonustypes) {
-                                foreach ($bonustypes as $term) {
-                                    if ($atts['cat_in'] === $term && current_user_can('administrator')) {
-                                        $catfilter = true;
-                                    }
-                                }
-                            }
-                        }
                     }
                     if ($jk > 15) {
                         $trClass .= " hidden-row";
@@ -311,9 +299,8 @@ function table_cta_shortcode($atts)
         $ret .= '		</div>';
         $ret .= '</div>';
         $ret .= '</div>';
-    }
 
-    elseif ('default_2' === $atts['layout']) { //////////////////////////////////////////////////////////////// DEFAULT 2 ////////////////////////////////////////////////////////
+    } elseif ('default_2' === $atts['layout']) { //////////////////////////////////////////////////////////////// DEFAULT 2 ////////////////////////////////////////////////////////
         $ret .= '<div class="inner_row more_games '.$unique.' mb-15p ' . $atts['layout'] . '">';
         $ret .= '	<div class="">';
         if ($atts['title'] && empty($atts['tabs_id']) && $atts['aj'] === 0) {
@@ -397,60 +384,6 @@ function table_cta_shortcode($atts)
                         $TCS = !get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) ? $advancedTCs : '<a href="' . get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) . '" target="_blank" rel="nofollow" class="text-9 text-grey text-italic text-center">' . $advancedTCs . '</a>';
                         $extraFilter = false;
                         $catfilter = false;
-                        $bonusISO = get_bonus_iso($casinoID);
-
-//                        if ($atts['cat_in']) {
-//                            $extraFilter = true;
-//                             if ($atts['cat_in'] === '48'){
-//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_no_dep', true);
-//                                 echo $meta;
-//                                 if (isset($meta) && $meta === '1') {
-//                                     $catfilter = true;
-//                                 }
-//                             }elseif ($atts['cat_in'] === '47'){
-//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_welcome_bonus', true);
-//                                 if (isset($meta) && $meta === 'on') {
-//                                     $catfilter = true;
-//                                 }
-//                             }
-//                             elseif ($atts['cat_in'] === '49'){
-//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_reload_bonus', true);
-//                                 if (isset($meta) && $meta === 'on') {
-//                                     $catfilter = true;
-//                                 }
-//                             }
-//                             elseif ($atts['cat_in'] === '56'){
-//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_free_spins', true);
-//                                 if (isset($meta) && $meta === 'on') {
-//                                     $catfilter = true;
-//                                 }
-//                             }
-//                             elseif ($atts['cat_in'] === '50'){
-//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_live_bonus', true);
-//                                 if (isset($meta) && $meta === 'on') {
-//                                     $catfilter = true;
-//                                 }
-//                             }
-//                             elseif ($atts['cat_in'] === '53'){
-//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_mobile_bonus', true);
-//                                 if (isset($meta) && $meta === 'on') {
-//                                     $catfilter = true;
-//                                 }
-//                             }
-//                             elseif ($atts['cat_in'] === '54'){
-//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_vip', true);
-//                                 if (isset($meta) && $meta === '1') {
-//                                     $catfilter = true;
-//                                 }
-//                             }
-//                             elseif ($atts['cat_in'] === '67'){
-//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta_bc_code', true);
-//                                 if (!empty($meta) && $meta !== '-') {
-//                                     $catfilter = true;
-//                                 }
-//                             }
-//                        }
-
 
                         $wagering = '';
                         $turnoverD = $geoBonusArgs['bonusText']['right-turnover-d'];
@@ -546,9 +479,8 @@ function table_cta_shortcode($atts)
         $ret .= '		</div>';
         $ret .= '</div>';
         $ret .= '</div>';
-    }
 
-    elseif ('default_3' === $atts['layout']) {
+    } elseif ('default_3' === $atts['layout']) {
         $priorityFilter =null;
 
         if ($atts['pay_order'] !=='') $priorityFilter = $atts['pay_order'];
@@ -611,17 +543,7 @@ function table_cta_shortcode($atts)
                         $TCS = !get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) ? $advancedTCs : '<a href="' . get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) . '" target="_blank" rel="nofollow" class="text-9 text-grey text-italic text-center">' . $advancedTCs . '</a>';
                         $extraFilter = false;
                         $catfilter = false;
-                        if ($atts['cat_in']) {
-                            $extraFilter = true;
-                            $bonustypes = $geoBonusArgs['bonusText']['left-billboard'];
-                            if ($bonustypes) {
-                                foreach ($bonustypes as $term) {
-                                    if ($atts['cat_in'] === $term && current_user_can('administrator')) {
-                                        $catfilter = true;
-                                    }
-                                }
-                            }
-                        }
+
                     }
                         if ($jk > 15) {
                         $trClass .= " hidden-row";
@@ -742,15 +664,6 @@ function table_cta_shortcode($atts)
                         $TCS = !get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) ? $advancedTCs : '<a href="' . get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) . '" target="_blank" rel="nofollow" class="text-9 text-grey text-italic text-center">' . $advancedTCs . '</a>';
                         $extraFilter = false;
                         $catfilter = false;
-                        if ($atts['cat_in']) {
-                            $extraFilter = true;
-                            $bonustypes = $geoBonusArgs['bonusText']['left-billboard'];
-                            foreach ($bonustypes as $term) {
-                                if ($atts['cat_in'] === $term && current_user_can('administrator')) {
-                                    $catfilter = true;
-                                }
-                            }
-                        }
 
                         $wagering = '';
                         $turnoverD = $geoBonusArgs['bonusText']['right-turnover-d'];
@@ -1169,15 +1082,7 @@ function table_cta_shortcode($atts)
                         $TCS = !get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) ? $advancedTCs : '<a href="' . get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) . '" target="_blank" rel="nofollow" class="text-9 text-grey text-italic text-center">' . $advancedTCs . '</a>';
                         $extraFilter = false;
                         $catfilter = false;
-                        if ($atts['cat_in']) {
-                            $extraFilter = true;
-                            $bonustypes = $geoBonusArgs['bonusText']['left-billboard'];
-                            foreach ($bonustypes as $term) {
-                                if ($atts['cat_in'] === $term && current_user_can('administrator')) {
-                                    $catfilter = true;
-                                }
-                            }
-                        }
+
 
 //                        $with = get_post_meta($casinoID, 'casino_custom_meta_' . $atts['deposit'] . '_max_wit', true);
                         $with = get_post_meta($casinoID, 'casino_custom_meta_min_dep', true);
@@ -1312,16 +1217,6 @@ function table_cta_shortcode($atts)
                     $TCS = !get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) ? $advancedTCs : '<a href="' . get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) . '" target="_blank" rel="nofollow" class="text-9 text-grey text-italic text-center">' . $advancedTCs . '</a>';
                     $extraFilter = false;
                     $catfilter = false;
-                    if ($atts['cat_in']) {
-                        $extraFilter = true;
-                        $bonustypes = $geoBonusArgs['bonusText']['left-billboard'];
-                        foreach ($bonustypes as $term) {
-                            if ($atts['cat_in'] === $term && current_user_can('administrator')) {
-                                $catfilter = true;
-                            }
-                        }
-                    }
-
                 }
 
                 if ($jk > 15) {
@@ -1494,20 +1389,6 @@ function table_cta_shortcode($atts)
                         $isBonusExclusiveMobile = $geoBonusArgs['isExclusive'] ? $exclusiveMobileString : '';
                         $advancedTCs = $geoBonusArgs['bonusText']['terms'] ?: '';
                         $TCS = !get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) ? $advancedTCs : '<a href="' . get_post_meta($casinoID, $countryISO . 'casino_custom_meta_sp_terms_link', true) . '" target="_blank" rel="nofollow" class="text-9 text-grey text-italic text-center">' . $advancedTCs . '</a>';
-                        $extraFilter = false;
-                        $catfilter = false;
-                        if ($atts['cat_in']) {
-                            $extraFilter = true;
-                            $bonustypes = $geoBonusArgs['bonusText']['left-billboard'];
-                            if ($bonustypes) {
-                                foreach ($bonustypes as $term) {
-                                    if ($atts['cat_in'] === $term && current_user_can('administrator')) {
-                                        $catfilter = true;
-                                    }
-                                }
-                            }
-                        }
-
 
                         $extraListItem1 = explode(",", get_post_meta($casinoID, 'casino_custom_meta_why_play', true));
                         if ($atts['2nd_column_list'] === "bonus") {
