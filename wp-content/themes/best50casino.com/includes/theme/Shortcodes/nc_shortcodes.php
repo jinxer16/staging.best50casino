@@ -399,58 +399,57 @@ function table_cta_shortcode($atts)
                         $catfilter = false;
                         $bonusISO = get_bonus_iso($casinoID);
 
-                        if ($atts['cat_in']) {
-                            $extraFilter = true;
-                             if ($atts['cat_in'] === '48'){
-                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_no_dep', true);
-                                 echo $meta;
-                                 if (isset($meta) && $meta === '1') {
-                                     echo $meta;
-                                     $catfilter = true;
-                                 }
-                             }elseif ($atts['cat_in'] === '47'){
-                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_welcome_bonus', true);
-                                 if (isset($meta) && $meta === 'on') {
-                                     $catfilter = true;
-                                 }
-                             }
-                             elseif ($atts['cat_in'] === '49'){
-                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_reload_bonus', true);
-                                 if (isset($meta) && $meta === 'on') {
-                                     $catfilter = true;
-                                 }
-                             }
-                             elseif ($atts['cat_in'] === '56'){
-                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_free_spins', true);
-                                 if (isset($meta) && $meta === 'on') {
-                                     $catfilter = true;
-                                 }
-                             }
-                             elseif ($atts['cat_in'] === '50'){
-                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_live_bonus', true);
-                                 if (isset($meta) && $meta === 'on') {
-                                     $catfilter = true;
-                                 }
-                             }
-                             elseif ($atts['cat_in'] === '53'){
-                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_mobile_bonus', true);
-                                 if (isset($meta) && $meta === 'on') {
-                                     $catfilter = true;
-                                 }
-                             }
-                             elseif ($atts['cat_in'] === '54'){
-                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_vip', true);
-                                 if (isset($meta) && $meta === 'on') {
-                                     $catfilter = true;
-                                 }
-                             }
-                             elseif ($atts['cat_in'] === '67'){
-                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta_bc_code', true);
-                                 if (!empty($meta) && $meta !== '-') {
-                                     $catfilter = true;
-                                 }
-                             }
-                        }
+//                        if ($atts['cat_in']) {
+//                            $extraFilter = true;
+//                             if ($atts['cat_in'] === '48'){
+//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_no_dep', true);
+//                                 echo $meta;
+//                                 if (isset($meta) && $meta === '1') {
+//                                     $catfilter = true;
+//                                 }
+//                             }elseif ($atts['cat_in'] === '47'){
+//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_welcome_bonus', true);
+//                                 if (isset($meta) && $meta === 'on') {
+//                                     $catfilter = true;
+//                                 }
+//                             }
+//                             elseif ($atts['cat_in'] === '49'){
+//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_reload_bonus', true);
+//                                 if (isset($meta) && $meta === 'on') {
+//                                     $catfilter = true;
+//                                 }
+//                             }
+//                             elseif ($atts['cat_in'] === '56'){
+//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_free_spins', true);
+//                                 if (isset($meta) && $meta === 'on') {
+//                                     $catfilter = true;
+//                                 }
+//                             }
+//                             elseif ($atts['cat_in'] === '50'){
+//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_live_bonus', true);
+//                                 if (isset($meta) && $meta === 'on') {
+//                                     $catfilter = true;
+//                                 }
+//                             }
+//                             elseif ($atts['cat_in'] === '53'){
+//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_mobile_bonus', true);
+//                                 if (isset($meta) && $meta === 'on') {
+//                                     $catfilter = true;
+//                                 }
+//                             }
+//                             elseif ($atts['cat_in'] === '54'){
+//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta__is_vip', true);
+//                                 if (isset($meta) && $meta === '1') {
+//                                     $catfilter = true;
+//                                 }
+//                             }
+//                             elseif ($atts['cat_in'] === '67'){
+//                                 $meta = get_post_meta($casinoID, $bonusISO.'casino_custom_meta_bc_code', true);
+//                                 if (!empty($meta) && $meta !== '-') {
+//                                     $catfilter = true;
+//                                 }
+//                             }
+//                        }
 
 
                         $wagering = '';

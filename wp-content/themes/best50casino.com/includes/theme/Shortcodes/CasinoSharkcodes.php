@@ -489,6 +489,62 @@ class CasinoSharkcodes
         return $query;
     }
 
+    private function bonus_filters_casino( $query ,$geoCountry, $filterValue ){
+        if (!empty($query)):
+            foreach ( $query as $key=>$id) {
+                if ($filterValue === '48'){
+                    $meta = get_post_meta($id, $geoCountry.'casino_custom_meta__is_no_dep', true);
+                    if (!isset($meta) || $meta !== '1') {
+                        unset($query[$key]);
+                    }
+                }elseif ($filterValue  === '47'){
+                    $meta = get_post_meta($id, $geoCountry.'casino_custom_meta__is_welcome_bonus', true);
+                    if (!isset($meta) && $meta === 'on') {
+                        unset($query[$key]);
+                    }
+                }
+                elseif ($filterValue === '49'){
+                    $meta = get_post_meta($id, $geoCountry.'casino_custom_meta__is_reload_bonus', true);
+                    if (!isset($meta) || $meta !== 'on') {
+                        unset($query[$key]);
+                    }
+                }
+                elseif ($filterValue=== '56'){
+                    $meta = get_post_meta($id, $geoCountry.'casino_custom_meta__is_free_spins', true);
+                    if (!isset($meta) || $meta !== 'on') {
+                        unset($query[$key]);
+                    }
+                }
+                elseif ($filterValue === '50'){
+                    $meta = get_post_meta($id, $geoCountry.'casino_custom_meta__is_live_bonus', true);
+                    if (!isset($meta) || $meta !== 'on') {
+                        unset($query[$key]);
+                    }
+                }
+                elseif ($filterValue === '53'){
+                    $meta = get_post_meta($id, $geoCountry.'casino_custom_meta__is_mobile_bonus', true);
+                    if (!isset($meta) || $meta !== 'on') {
+                        unset($query[$key]);
+                    }
+                }
+                elseif ($filterValue === '54'){
+                    $meta = get_post_meta($id, $geoCountry.'casino_custom_meta__is_vip', true);
+                    if (!isset($meta) || $meta !== '1') {
+                        unset($query[$key]);
+                    }
+                }
+                elseif ($filterValue === '67'){
+                    $meta = get_post_meta($id, $geoCountry.'casino_custom_meta_bc_code', true);
+                    if (empty($meta) || $meta === '-') {
+                        unset($query[$key]);
+                    }
+                }
+            }
+
+
+        endif;
+        return $query;
+    }
 
     private function bonus_filters( $query , $filterValue ){
         if (!empty($query)):
@@ -582,6 +638,10 @@ class CasinoSharkcodes
         if (isset($atts['cat_in_filter']) && $atts['cat_in_filter'] != 'exclusive') {
             $filterValue  = strpos($this->args['cat_in_filter'], ',') !== false ? explode(",",$atts['cat_in_filter'] ) : [$atts['cat_in_filter']];
             $filteredGeoBookies = $this->bonus_filters( $filteredGeoBookies,$filterValue);
+        }
+        if (isset($atts['cat_in'])) {
+            $filterValue  = strpos($this->args['cat_in'], ',') !== false ? explode(",",$atts['cat_in'] ) : [$atts['cat_in']];
+            $filteredGeoBookies = $this->bonus_filters_casino( $filteredGeoBookies,$this->geoCountry,$filterValue);
         }
         $filterCasinos = $filteredGeoBookies;
         $this->setCasinos($filterCasinos);
